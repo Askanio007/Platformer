@@ -13,7 +13,8 @@ public class Hero : MonoBehaviour
 
     private Vector2 _direction;
     private Rigidbody2D _rigedbody;
-    
+    private Color _gizmoColor;
+
 
     void Awake()
     {
@@ -28,9 +29,10 @@ public class Hero : MonoBehaviour
     void FixedUpdate()
     {
         _rigedbody.linearVelocity = new Vector2(_direction.x * _speed, _rigedbody.linearVelocity.y);
+        bool isGrounded = IsGrounded();
         if (_direction.y > 0)
         {
-            if (IsGrounded())
+            if (isGrounded)
             {
                 _rigedbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
             }
@@ -39,17 +41,19 @@ public class Hero : MonoBehaviour
         {
             _rigedbody.linearVelocity = new Vector2(_rigedbody.linearVelocity.x, _rigedbody.linearVelocity.y * 0.5f);
         }
+        
     }
 
     private bool IsGrounded()
     {
-        var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
-        return hit.collider != null;
+        bool existHit = Physics2D.OverlapCircle(transform.position + _groundCheckPositionDelta, _groundCheckRadius, _groundLayer);
+        _gizmoColor = existHit ? Color.green : Color.red;
+        return existHit;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = IsGrounded() ? Color.green : Color.red;
+        Gizmos.color = _gizmoColor;
         Gizmos.DrawSphere(transform.position + _groundCheckPositionDelta, _groundCheckRadius);
     }
 
