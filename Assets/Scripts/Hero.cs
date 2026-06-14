@@ -20,6 +20,8 @@ public class Hero : MonoBehaviour
     private static readonly int isRunningKey = Animator.StringToHash("is-running");
     private static readonly int verticalVelocityKey = Animator.StringToHash("vertical-velocity");
 
+    private int _coins;
+
 
     void Awake()
     {
@@ -52,6 +54,12 @@ public class Hero : MonoBehaviour
         _animator.SetBool(isRunningKey, _direction.x != 0);
         _animator.SetFloat(verticalVelocityKey, _rigedbody.linearVelocity.y);
         UpdateSpriteDirection();
+    }
+
+    public void AddCoins(int value)
+    {
+        _coins += value;
+        Debug.Log($"Get {value} coins. All coins={_coins}");
     }
 
     private void UpdateSpriteDirection()
