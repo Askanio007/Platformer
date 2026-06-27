@@ -54,6 +54,11 @@ namespace AloneCrew
         {
             _direction = direction;
         }
+        
+        public void SetJumpSpeed(float speed)
+        {
+            _jumpSpeed = speed;
+        }
 
         void FixedUpdate()
         {
