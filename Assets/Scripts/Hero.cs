@@ -14,11 +14,20 @@ public class Hero : MonoBehaviour
     private Vector2 _direction;
     private Rigidbody2D _rigedbody;
     private Color _gizmoColor;
+    private Animator _animator;
+    private SpriteRenderer _sprite;
+    private static readonly int isGroundedKey = Animator.StringToHash("is-grounded");
+    private static readonly int isRunningKey = Animator.StringToHash("is-running");
+    private static readonly int verticalVelocityKey = Animator.StringToHash("vertical-velocity");
+
+    private int _coins;
 
 
     void Awake()
     {
         _rigedbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _sprite = GetComponent<SpriteRenderer>();
     }
 
     public void SetDirection(Vector2 direction)
@@ -41,7 +50,28 @@ public class Hero : MonoBehaviour
         {
             _rigedbody.linearVelocity = new Vector2(_rigedbody.linearVelocity.x, _rigedbody.linearVelocity.y * 0.5f);
         }
-        
+        _animator.SetBool(isGroundedKey, isGrounded);
+        _animator.SetBool(isRunningKey, _direction.x != 0);
+        _animator.SetFloat(verticalVelocityKey, _rigedbody.linearVelocity.y);
+        UpdateSpriteDirection();
+    }
+
+    public void AddCoins(int value)
+    {
+        _coins += value;
+        Debug.Log($"Get {value} coins. All coins={_coins}");
+    }
+
+    private void UpdateSpriteDirection()
+    {
+        if (_direction.x > 0)
+        {
+            _sprite.flipX = false;
+        }
+        else if (_direction.x < 0)
+        {
+            _sprite.flipX = true;
+        }
     }
 
     private bool IsGrounded()
