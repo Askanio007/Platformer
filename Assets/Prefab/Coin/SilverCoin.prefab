@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7298930481763848540}
   - component: {fileID: 182519755472200579}
   - component: {fileID: 2629309281130128555}
+  - component: {fileID: 3284005866713735806}
   m_Layer: 0
   m_Name: SilverCoin
   m_TagString: Untagged
@@ -129,8 +130,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.17
+  m_Offset: {x: 0.016661152, y: 0.013153583}
+  m_Radius: 0.17175385
 --- !u!114 &7298930481763848540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,18 +148,6 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AloneCrew.Hero, Assembly-CSharp
-        m_MethodName: AddCoin
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2629309281130128555}
         m_TargetAssemblyTypeName: SpriteAnimationComponent, Assembly-CSharp
         m_MethodName: SetClip
@@ -171,16 +160,19 @@ MonoBehaviour:
           m_StringArgument: grab
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
-        m_MethodName: AddCoins
-        m_Mode: 3
+  _eventCollider:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3284005866713735806}
+        m_TargetAssemblyTypeName: AloneCrew.CoinGrabber, Assembly-CSharp
+        m_MethodName: GrabCoin
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: grab
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &182519755472200579
@@ -246,3 +238,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &3284005866713735806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991000262776690064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd23b81e2461476caec91791a3ddd33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CoinGrabber
+  _coin: 1

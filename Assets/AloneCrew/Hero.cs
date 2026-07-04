@@ -1,4 +1,8 @@
 using AloneCrew.Components;
+using AloneCrew.Model;
+using AloneCrew.Utils;
+using UnityEditor;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace AloneCrew
@@ -12,36 +16,72 @@ namespace AloneCrew
         [SerializeField] private LayerMask _interactLayer;
         [SerializeField] private float _interactCheckRadius;
         [SerializeField] private float _longFly;
+        [SerializeField] private int _attack;
 
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private Vector3 _groundCheckPositionDelta;
+        [SerializeField] private CheckCircleOverlap _attackRange;
         
         [SerializeField] private SpawnComponent _footDust;
         [SerializeField] private SpawnComponent _jumpDust;
         [SerializeField] private SpawnComponent _fallDust;
         [SerializeField] private ParticleSystem _hitParticles;
         
+        [SerializeField] private AnimatorController _armed;
+        [SerializeField] private AnimatorController _disarmed;
+        
 
         private Vector2 _direction;
         private Rigidbody2D _rigedbody;
-        private Color _gizmoColor;
+        private Color _handlesColor;
         private Animator _animator;
         private static readonly int isGroundedKey = Animator.StringToHash("is-grounded");
         private static readonly int isRunningKey = Animator.StringToHash("is-running");
         private static readonly int verticalVelocityKey = Animator.StringToHash("vertical-velocity");
         private static readonly int hitKey = Animator.StringToHash("hit");
         private static readonly int healthKey = Animator.StringToHash("health");
+        private static readonly int attackKey = Animator.StringToHash("attack");
 
         private bool _isGrounded;
         private bool _allowDoubleJump;
         private bool _needFallDust;
-        private int _coins;
+        private GameSession _gameSession;
 
         void Awake()
         {
             _rigedbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
         }
+        
+        void Start()
+        {
+            InitSession();
+        }
+
+        public void UpdateArm()
+        {
+            _gameSession.Data.IsArmed = !_gameSession.Data.IsArmed;
+            UpdateAnimator();
+        }
+
+        private void InitSession()
+        {
+            _gameSession = FindFirstObjectByType<GameSession>();
+            GetComponent<HealthComponent>().SetHealth(_gameSession.Data.Hp);
+            UpdateAnimator();
+        }
+
+        private void UpdateAnimator()
+        {
+            _animator.runtimeAnimatorController = _gameSession.Data.IsArmed ? _armed : _disarmed;
+        }
+        
+
+        public void OnHealthChange(int health)
+        {
+            _gameSession.Data.Hp = health;
+        }
+        
 
         void Update()
         {
@@ -88,8 +128,8 @@ namespace AloneCrew
 
         public void AddCoin(int value)
         {
-            _coins += value;
-            Debug.Log($"Get {value}; All coins={_coins}");
+            _gameSession.Data.Coins += value;
+            Debug.Log($"Get {value}; All coins={_gameSession.Data.Coins}");
         }
 
         public void TakeDamage()
@@ -107,13 +147,13 @@ namespace AloneCrew
 
         private void SpawnCoins()
         {
-            if (_coins <= 0)
+            if (_gameSession.Data.Coins <= 0)
             {
                 return;
             }
 
-            var numberCoinsToDispose = Mathf.Min(_coins, 5);
-            _coins -= numberCoinsToDispose;
+            var numberCoinsToDispose = Mathf.Min(_gameSession.Data.Coins, 5);
+            _gameSession.Data.Coins -= numberCoinsToDispose;
 
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = numberCoinsToDispose;
@@ -173,9 +213,7 @@ namespace AloneCrew
 
         private bool IsGrounded()
         {
-            bool existHit = Physics2D.OverlapCircle(transform.position + _groundCheckPositionDelta, _groundCheckRadius,
-                _groundLayer);
-            _gizmoColor = existHit ? Color.green : Color.red;
+            bool existHit = Physics2D.OverlapCircle(transform.position + _groundCheckPositionDelta, _groundCheckRadius, _groundLayer);
             return existHit;
         }
         
@@ -183,6 +221,26 @@ namespace AloneCrew
         {
             Collider2D collider = Physics2D.OverlapCircle(transform.position, _interactCheckRadius, _interactLayer);
             collider?.gameObject.GetComponent<InteractComponent>()?.Interact();
+        }
+        
+        public void Attack()
+        {
+            if (!_gameSession.Data.IsArmed) return;
+            _animator.SetTrigger(attackKey);
+        }
+        
+        public void DoAttack()
+        {
+            var objects = _attackRange.GetObjectsInRange();
+            foreach (var go in objects)
+            {
+                var hp = go.GetComponent<HealthComponent>();
+                if (hp != null)
+                {
+                    hp.ApplyDamage(_attack);
+                }
+                
+            }
         }
 
         public void SpawnDust()
@@ -195,10 +253,12 @@ namespace AloneCrew
             
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            Gizmos.color = _gizmoColor;
-            Gizmos.DrawSphere(transform.position + _groundCheckPositionDelta, _groundCheckRadius);
+            Handles.color = IsGrounded() ? HandlesUtils.TransparentGreen : HandlesUtils.TransparentRed;
+            Handles.DrawSolidDisc(transform.position + _groundCheckPositionDelta, Vector3.forward, _groundCheckRadius);
         }
+#endif
     }
 }

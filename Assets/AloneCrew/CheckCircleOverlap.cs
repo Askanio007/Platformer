@@ -1,0 +1,34 @@
+﻿using System.Collections.Generic;
+using AloneCrew.Utils;
+using NUnit.Framework;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.XR;
+
+namespace AloneCrew
+{
+    public class CheckCircleOverlap : MonoBehaviour
+    {
+        [SerializeField] private float _radius;
+        [SerializeField] private string _tag;
+
+        private readonly Collider2D[] _interactionResult = new Collider2D[5];
+        public GameObject[] GetObjectsInRange()
+        {
+            var colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
+            var result = new List<GameObject>();
+            foreach (var collider in colliders)
+            {
+                result.Add(collider.gameObject);
+            }
+            return result.ToArray();
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Handles.color = HandlesUtils.TransparentRed;
+            Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
+        }
+        
+    }
+}

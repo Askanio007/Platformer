@@ -11,10 +11,17 @@ namespace AloneCrew.Components
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHealth;
         [SerializeField] private UnityEvent _onDie;
+        [SerializeField] private HealthChange _onChange;
+
+        public void SetHealth(int health)
+        {
+            _health = health;
+        }
 
         public void ApplyDamage(int damage)
         {
             _health = Math.Min(_maxHealth, _health - damage);
+            _onChange?.Invoke(_health);
             if (damage < 0)
             {
                 _onHealth?.Invoke();
@@ -28,6 +35,11 @@ namespace AloneCrew.Components
                 _onDie?.Invoke();
             }
         }
+        
+        [Serializable]
+        public class HealthChange : UnityEvent<int>
+        {}
+        
         
     }
 }
