@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 namespace AloneCrew
 {
@@ -40,6 +41,27 @@ namespace AloneCrew
             {
                 _hero.Attack();
             }
+        }
+        
+        public void OnArmed(InputAction.CallbackContext context)
+        {
+            if(context.started)
+            {
+                _hero.UpdateArm();
+            }
+        }
+        
+        public void OnThrow(InputAction.CallbackContext context)
+        {
+            if (context.interaction is HoldInteraction && context.performed)
+            {
+                _hero.BigThrow();
+            }
+            else if (context.interaction is TapInteraction && (context.started || context.canceled))
+            {
+                _hero.Throw();
+            }
+            
         }
     }
 }

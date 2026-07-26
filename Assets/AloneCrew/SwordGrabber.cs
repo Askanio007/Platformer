@@ -2,16 +2,16 @@
 
 namespace AloneCrew
 {
-    public class CoinGrabber : MonoBehaviour
+    public class SwordGrabber : MonoBehaviour
     {
-        [SerializeField] private int _coin;
+        [SerializeField] private int _sword;
 
-        public void GrabCoin(GameObject gameObject)
+        public void GrabSword(GameObject gameObject)
         {
             var hero = gameObject.GetComponent<Hero>();
             if (hero != null)
             {
-                hero.AddCoin(_coin);
+                hero.AddSword(_sword);
             }
         }
         

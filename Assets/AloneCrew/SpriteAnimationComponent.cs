@@ -45,7 +45,7 @@ namespace AloneCrew
                 else
                 {
                     _isPlaying = false;
-                    _spriteRenderer.sprite = null; 
+                    _spriteRenderer.sprite = _currentState.spriteAfterAnimation; 
                     _currentState.OnComplete?.Invoke();
                     return;
                 }
@@ -71,6 +71,7 @@ namespace AloneCrew
             public string Name;
             public bool Loop;
             public bool AllowNext;
+            public Sprite spriteAfterAnimation;
             public Sprite[] Sprites;
             public int FrameRate;
             public UnityEvent OnComplete;
