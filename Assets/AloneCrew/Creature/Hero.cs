@@ -9,6 +9,7 @@ namespace AloneCrew
 {
     public class Hero : Creature
     {
+        private const int MIN_SWORD_COUNT = 1;
         [SerializeField] private LayerMask _interactLayer;
         [SerializeField] private float _interactCheckRadius;
         [SerializeField] private Cooldown _throwCooldown;
@@ -19,6 +20,7 @@ namespace AloneCrew
         
         private Color _handlesColor;
         private bool _allowDoubleJump;
+        private bool _isThrowing;
         
         private GameSession _gameSession;
         
@@ -147,6 +149,7 @@ namespace AloneCrew
         public void BigThrow()
         {
             if (!_gameSession.Data.IsArmed) return;
+            _isThrowing = true;
             StartCoroutine(ThrowBatch());
         }
 
@@ -154,16 +157,19 @@ namespace AloneCrew
         {
             for (int i = 0; i < 3; i++)
             {
-                
-                TryThrow();
+                if (!TryThrow())
+                {
+                    yield break;
+                }
                 yield return new WaitForSeconds(0.1f);
             }
+            _isThrowing = false;
         }
 
         private bool TryThrow()
         {
             var swordCount = _gameSession.Data.SwordCount;
-            if (swordCount > 1)
+            if (swordCount > MIN_SWORD_COUNT)
             {
                 base.Throw();
                 _gameSession.Data.SwordCount = swordCount-1;
