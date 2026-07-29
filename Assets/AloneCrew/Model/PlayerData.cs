@@ -8,6 +8,7 @@ namespace AloneCrew.Model
         public int Coins;
         public int Hp;
         public bool IsArmed;
+        public int SwordCount;
         
         public PlayerData Clone()
         {
@@ -15,7 +16,8 @@ namespace AloneCrew.Model
             {
                 Coins = Coins,
                 Hp = Hp,
-                IsArmed = IsArmed
+                IsArmed = IsArmed,
+                SwordCount = SwordCount
             };
         }
     }

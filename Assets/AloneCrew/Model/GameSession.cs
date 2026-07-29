@@ -1,5 +1,4 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AloneCrew.Model
 {
@@ -29,6 +28,7 @@ namespace AloneCrew.Model
             Data.Hp = _initData.Hp;
             Data.Coins = _initData.Coins;
             Data.IsArmed = _initData.IsArmed;
+            Data.SwordCount = _initData.SwordCount;
         }
 
         private GameSession GetSessionExist()

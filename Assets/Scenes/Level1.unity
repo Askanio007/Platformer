@@ -650,6 +650,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -1233,6 +1236,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.EnterTriggerComponent
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -1417,6 +1423,7 @@ MonoBehaviour:
     Coins: 0
     Hp: 5
     IsArmed: 0
+    SwordCount: 0
 --- !u!4 &328935331
 Transform:
   m_ObjectHideFlags: 0
@@ -1766,9 +1773,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1974565
+    x: 0.25653046
     y: 0
-    width: 0.605087
+    width: 0.48626924
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1799,7 +1806,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.879999, y: 3.423528, z: -4.7685847}
+  m_LocalPosition: {x: -8.879995, y: 3.423528, z: -4.7685847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7200,6 +7207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -8522,6 +8532,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6991000262776690064, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: m_Name
+      value: SilverCoin (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298930481763848540, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1168694185}
+    - target: {fileID: 7298930481763848540, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704114871681970307, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704114871681970307, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.65
+      objectReference: {fileID: 0}
     - target: {fileID: 604442116900643007, guid: cc26aa854e4a22f448f708347d6eb749, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.42
@@ -8565,26 +8595,6 @@ PrefabInstance:
     - target: {fileID: 3971239166748169679, guid: cc26aa854e4a22f448f708347d6eb749, type: 3}
       propertyPath: m_Name
       value: GoldCoin (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6991000262776690064, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: m_Name
-      value: SilverCoin (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298930481763848540, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1168694185}
-    - target: {fileID: 7298930481763848540, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddCoin
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704114871681970307, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704114871681970307, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9294,6 +9304,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6991000262776690064, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: m_Name
+      value: SilverCoin (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298930481763848540, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1168694185}
+    - target: {fileID: 7298930481763848540, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704114871681970307, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704114871681970307, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.6
+      objectReference: {fileID: 0}
     - target: {fileID: 604442116900643007, guid: cc26aa854e4a22f448f708347d6eb749, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.66
@@ -9337,26 +9367,6 @@ PrefabInstance:
     - target: {fileID: 3971239166748169679, guid: cc26aa854e4a22f448f708347d6eb749, type: 3}
       propertyPath: m_Name
       value: GoldCoin (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6991000262776690064, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: m_Name
-      value: SilverCoin (18)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7298930481763848540, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1168694185}
-    - target: {fileID: 7298930481763848540, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddCoin
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704114871681970307, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 24.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 8704114871681970307, guid: 30923e705dfc3e4438c840b7db6dbda0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20205,9 +20215,17 @@ PrefabInstance:
       propertyPath: _jumpForce
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3801373665201024120, guid: 1f07d0e8fca64764d9906830c833cd88, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4326294771581905492, guid: 1f07d0e8fca64764d9906830c833cd88, type: 3}
       propertyPath: m_Name
       value: BombBarrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326294771581905492, guid: 1f07d0e8fca64764d9906830c833cd88, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6800443297471904972, guid: 1f07d0e8fca64764d9906830c833cd88, type: 3}
       propertyPath: _jumpForce
@@ -20266,6 +20284,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2715278387837233822, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0e050fd676c35874d8a41fb6c2fe3c23, type: 2}
     - target: {fileID: 5050551680893441804, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: m_Name
       value: Hero
