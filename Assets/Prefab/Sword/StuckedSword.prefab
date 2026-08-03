@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 383780392842944721}
   - component: {fileID: 5443115984764816811}
   - component: {fileID: 2978013890875970888}
-  - component: {fileID: 7523186680692517170}
+  - component: {fileID: 7508850946122422522}
   m_Layer: 0
   m_Name: StuckedSword
   m_TagString: Untagged
@@ -204,9 +204,9 @@ MonoBehaviour:
   _eventCollider:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7523186680692517170}
-        m_TargetAssemblyTypeName: AloneCrew.SwordGrabber, Assembly-CSharp
-        m_MethodName: GrabSword
+      - m_Target: {fileID: 7508850946122422522}
+        m_TargetAssemblyTypeName: AloneCrew.Components.InventoryAddComponent, Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.DestroyObjectComponent
   _forDestroy: {fileID: 7796310160666003223}
---- !u!114 &7523186680692517170
+--- !u!114 &7508850946122422522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,7 +238,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7796310160666003223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bac8795250846f2b257e6ba8748976d, type: 3}
+  m_Script: {fileID: 11500000, guid: e99b8bc681da47889c7f40008d4cf794, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.SwordGrabber
-  _sword: 1
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.InventoryAddComponent
+  _id: Sword
+  _count: 1
