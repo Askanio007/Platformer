@@ -1773,9 +1773,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.25653046
+    x: 0.25834447
     y: 0
-    width: 0.48626924
+    width: 0.48331112
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1806,7 +1806,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.879995, y: 3.423528, z: -4.7685847}
+  m_LocalPosition: {x: -8.880001, y: 3.423528, z: -4.7685847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20288,14 +20288,54 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0e050fd676c35874d8a41fb6c2fe3c23, type: 2}
+    - target: {fileID: 4323630714650231014, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: m_Volume
+      value: 0.589
+      objectReference: {fileID: 0}
     - target: {fileID: 5050551680893441804, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1168694185}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
       objectReference: {fileID: 684245187}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDie
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ReloadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AloneCrew.Hero, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AloneCrew.ReloadScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9051125465453885845, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.3

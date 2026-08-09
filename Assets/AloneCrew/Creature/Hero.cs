@@ -23,9 +23,11 @@ namespace AloneCrew
         private bool _isThrowing;
         
         private GameSession _gameSession;
+        private PlaySoundComponent _sounds;
         
         void Start()
         {
+            _sounds =  GetComponent<PlaySoundComponent>();
             InitSession();
         }
 
@@ -46,6 +48,16 @@ namespace AloneCrew
         private void UpdateAnimator()
         {
             _animator.runtimeAnimatorController = _gameSession.Data.IsArmed ? _armed : _disarmed;
+        }
+
+        public void OnDie()
+        {
+            _sounds.Play(soundDieKey);
+        }
+        
+        public void OnJump()
+        {
+            _sounds.Play(soundJumpKey);
         }
         
 
@@ -86,6 +98,7 @@ namespace AloneCrew
         {
             base.TakeDamage();
             SpawnCoins();
+            _sounds.Play(soundHurtKey);
         }
 
         private void SpawnCoins()
@@ -132,6 +145,7 @@ namespace AloneCrew
         {
             if (!_gameSession.Data.IsArmed) return;
             base.Attack();
+            _sounds.Play(soundMeleeKey);
         }
         
         public override void Throw()
@@ -172,6 +186,7 @@ namespace AloneCrew
             if (swordCount > MIN_SWORD_COUNT)
             {
                 base.Throw();
+                _sounds.Play(soundThrowKey);
                 _gameSession.Data.SwordCount = swordCount-1;
                 return true;
             }

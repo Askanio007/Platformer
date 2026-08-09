@@ -32,6 +32,12 @@ namespace AloneCrew
         private static readonly int attackKey = Animator.StringToHash("attack");
         private static readonly int throwKey = Animator.StringToHash("throw");
         
+        protected static readonly string soundThrowKey = "range";
+        protected static readonly string soundJumpKey = "jump";
+        protected static readonly string soundDieKey = "die";
+        protected static readonly string soundMeleeKey = "melee";
+        protected static readonly string soundHurtKey = "hurt";
+        
         protected virtual void Awake()
         {
             _rigedbody = GetComponent<Rigidbody2D>();
