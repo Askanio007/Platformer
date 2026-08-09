@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AloneCrew.Model.Data;
+using UnityEngine;
 
 namespace AloneCrew.Model
 {
@@ -26,9 +27,7 @@ namespace AloneCrew.Model
         public void Reset()
         {
             Data.Hp = _initData.Hp;
-            Data.Coins = _initData.Coins;
-            Data.IsArmed = _initData.IsArmed;
-            Data.SwordCount = _initData.SwordCount;
+            Data.IsArmed =  _initData.IsArmed;
         }
 
         private GameSession GetSessionExist()
