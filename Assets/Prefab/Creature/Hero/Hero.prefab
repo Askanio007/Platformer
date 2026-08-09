@@ -5255,8 +5255,9 @@ GameObject:
   - component: {fileID: 2715278387837233822}
   - component: {fileID: 7338492709060500022}
   - component: {fileID: 52207976433376050}
-  - component: {fileID: 3682536546820041748}
   - component: {fileID: 3503076550610999789}
+  - component: {fileID: 6566735460576038610}
+  - component: {fileID: 60291526502292002}
   m_Layer: 3
   m_Name: Hero
   m_TagString: Player
@@ -5746,21 +5747,38 @@ MonoBehaviour:
   _onFail:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6566735460576038610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050551680893441804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 186dfe6175d94eecb6d3ec648fcd45f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.PlaySoundComponent
   _source: {fileID: 8901141910125106511}
   _sounds:
-  - _id: jump
-    _clip: {fileID: 8300000, guid: e3ff5eea2dc47c44891804fd54273ced, type: 3}
   - _id: die
     _clip: {fileID: 8300000, guid: e620d0c0938a2234eb30c21c9f2dbccd, type: 3}
   - _id: hurt
     _clip: {fileID: 8300000, guid: 976c5d226b4796443b5773ad902759be, type: 3}
+  - _id: jump
+    _clip: {fileID: 8300000, guid: e3ff5eea2dc47c44891804fd54273ced, type: 3}
   - _id: melee
     _clip: {fileID: 8300000, guid: 1593dc2aba0f295488f2d300e27ac5e5, type: 3}
   - _id: range
     _clip: {fileID: 8300000, guid: 9338ff75f0f0b3b4387d01e169724361, type: 3}
+--- !u!81 &60291526502292002
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050551680893441804}
+  m_Enabled: 1
 --- !u!1 &6872468203665357676
 GameObject:
   m_ObjectHideFlags: 0
