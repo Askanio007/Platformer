@@ -1,23 +1,21 @@
 ﻿using System;
+using UnityEngine;
 
-namespace AloneCrew.Model
+namespace AloneCrew.Model.Data
 {
     [Serializable]
     public class PlayerData
     {
-        public int Coins;
+        [SerializeField] public InventoryData _inventory;
         public int Hp;
         public bool IsArmed;
-        public int SwordCount;
-        
+        public InventoryData Inventory => _inventory;
         public PlayerData Clone()
         {
             return new PlayerData
             {
-                Coins = Coins,
                 Hp = Hp,
-                IsArmed = IsArmed,
-                SwordCount = SwordCount
+                IsArmed = IsArmed
             };
         }
     }

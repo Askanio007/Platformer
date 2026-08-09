@@ -51,6 +51,14 @@ namespace AloneCrew
             }
         }
         
+        public void OnHeal(InputAction.CallbackContext context)
+        {
+            if(context.started)
+            {
+                _hero.Heal();
+            }
+        }
+        
         public void OnThrow(InputAction.CallbackContext context)
         {
             if (context.interaction is HoldInteraction && context.performed)

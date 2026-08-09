@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnterTriggerComponent
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -164,8 +167,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3284005866713735806}
-        m_TargetAssemblyTypeName: AloneCrew.CoinGrabber, Assembly-CSharp
-        m_MethodName: GrabCoin
+        m_TargetAssemblyTypeName: AloneCrew.Components.InventoryAddComponent, Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -206,6 +209,7 @@ MonoBehaviour:
   - Name: idle
     Loop: 1
     AllowNext: 1
+    spriteAfterAnimation: {fileID: 0}
     Sprites:
     - {fileID: -2322180950842035098, guid: e0ac4d6570ac7cf48b988c100345b95f, type: 3}
     - {fileID: -4893972260818282012, guid: e0ac4d6570ac7cf48b988c100345b95f, type: 3}
@@ -218,6 +222,7 @@ MonoBehaviour:
   - Name: grab
     Loop: 0
     AllowNext: 0
+    spriteAfterAnimation: {fileID: 0}
     Sprites:
     - {fileID: 1909865664, guid: e0ac4d6570ac7cf48b988c100345b95f, type: 3}
     - {fileID: -2119934950, guid: e0ac4d6570ac7cf48b988c100345b95f, type: 3}
@@ -247,7 +252,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6991000262776690064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd23b81e2461476caec91791a3ddd33e, type: 3}
+  m_Script: {fileID: 11500000, guid: e99b8bc681da47889c7f40008d4cf794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CoinGrabber
-  _coin: 1
+  _id: Coin
+  _count: 1

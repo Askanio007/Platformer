@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AloneCrew.Utils;
+using UnityEngine;
 
 namespace AloneCrew.Components
 {
