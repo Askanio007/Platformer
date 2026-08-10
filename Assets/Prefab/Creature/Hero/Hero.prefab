@@ -5366,6 +5366,7 @@ MonoBehaviour:
   _jumpSpeed: 12
   _damageVelocity: 0
   _attack: 2
+  _invertScale: 0
   _groundCheck: {fileID: 7165556618079113718}
   _attackRange: {fileID: 122014118064581025}
   _particles: {fileID: 52207976433376050}
@@ -5607,7 +5608,7 @@ Animator:
   m_GameObject: {fileID: 5050551680893441804}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6c2e7d03b8882d742a95c7b391d5ea9d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0e050fd676c35874d8a41fb6c2fe3c23, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5911,7 +5912,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.875, y: 0.53125}
+  m_Size: {x: 0.07, y: 0.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -6219,4 +6220,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CheckCircleOverlap
   _radius: 0.3
-  _tag: 
+  _tag: Enemy

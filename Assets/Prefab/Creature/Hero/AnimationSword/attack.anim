@@ -36,11 +36,11 @@ AnimationClip:
     - time: 0
       value: {fileID: 0}
     - time: 0.05
-      value: {fileID: 21300000, guid: 984b527c561bbe24b8af95bf54dd0d97, type: 3}
-    - time: 0.06666667
-      value: {fileID: 21300000, guid: b56b337da2ab5ac49bc68d108ff2c055, type: 3}
+      value: {fileID: 9092353298687078743, guid: 4c94687df9200934ebfdc195a9a20ae4, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 1ea5f05ed15b10f4fa05c266135e8b8f, type: 3}
+      value: {fileID: -4819152507972994440, guid: dd08b77687413bc4780f1e962f972a90, type: 3}
+    - time: 0.11666667
+      value: {fileID: 3824202059119776168, guid: 593098bf52bbfb84ab0ea8585dfd7a37, type: 3}
     attribute: m_Sprite
     path: SwordParticularPosition
     classID: 212
@@ -76,9 +76,9 @@ AnimationClip:
     - {fileID: 21300000, guid: 81da968e0ad4303479a1ec4a5437ebc5, type: 3}
     - {fileID: 21300000, guid: 769c269f69595e6469bce15654a4cab2, type: 3}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 984b527c561bbe24b8af95bf54dd0d97, type: 3}
-    - {fileID: 21300000, guid: b56b337da2ab5ac49bc68d108ff2c055, type: 3}
-    - {fileID: 21300000, guid: 1ea5f05ed15b10f4fa05c266135e8b8f, type: 3}
+    - {fileID: 9092353298687078743, guid: 4c94687df9200934ebfdc195a9a20ae4, type: 3}
+    - {fileID: -4819152507972994440, guid: dd08b77687413bc4780f1e962f972a90, type: 3}
+    - {fileID: 3824202059119776168, guid: 593098bf52bbfb84ab0ea8585dfd7a37, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

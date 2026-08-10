@@ -12,6 +12,7 @@ namespace AloneCrew
         [SerializeField] private float _damageVelocity;
         [SerializeField] private int _attack;
 
+        [Header("Params")][SerializeField] private bool _invertScale;
         [SerializeField] private LayerCheck _groundCheck;
         [SerializeField] private CheckCircleOverlap _attackRange;
         
@@ -114,13 +115,14 @@ namespace AloneCrew
         
         private void UpdateSpriteDirection()
         {
+            var multiplier = _invertScale ? -1 : 1;
             if (_direction.x > 0)
             {
-                transform.localScale = Vector3.one;
+                transform.localScale = new Vector3(multiplier, 1, 1);
             }
             else if (_direction.x < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-1 * multiplier, 1, 1);
             }
         }
 
