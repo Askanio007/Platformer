@@ -15,7 +15,7 @@ namespace AloneCrew
 
         private Coroutine _current;
         private GameObject _target;
-        private Creature _creature;
+        private PatrollingCreature _creature;
         private bool _isDead;
 
         private SpawnListComponent _particles;
@@ -24,7 +24,7 @@ namespace AloneCrew
         private void Awake()
         {
             _particles = GetComponent<SpawnListComponent>();
-            _creature = GetComponent<Creature>();
+            _creature = GetComponent<PatrollingCreature>();
             _animator = GetComponent<Animator>();
         }
         
@@ -42,7 +42,17 @@ namespace AloneCrew
 
         private IEnumerator Patrolling()
         {
-            yield return null;
+            while (true)
+            {
+                _creature.DoPatroling();
+                yield return null;
+            }
+        }
+
+        private IEnumerator MissHero()
+        {
+            yield return new WaitForSeconds(_alarmDelay);
+            StartState(Patrolling());
         }
         
         private IEnumerator AgroToHero()
@@ -67,6 +77,7 @@ namespace AloneCrew
                 }
                 yield return null;
             }
+            StartState(MissHero());
         }
 
         private IEnumerator Attack()

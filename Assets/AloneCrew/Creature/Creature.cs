@@ -22,7 +22,7 @@ namespace AloneCrew
         protected Vector2 _direction;
         protected Rigidbody2D _rigedbody;
         protected Animator _animator;
-        protected bool _isGrounded;
+        public bool _isGrounded;
         private bool _needFallDust;
         
         private static readonly int isGroundedKey = Animator.StringToHash("is-grounded");
