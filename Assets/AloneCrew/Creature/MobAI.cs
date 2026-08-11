@@ -95,7 +95,6 @@ namespace AloneCrew
             var direction = _target.transform.position - transform.position;
             direction.y = 0;
             _creature.SetDirection(direction.normalized);
-
         }
 
         private void StartState(IEnumerator coroutine)

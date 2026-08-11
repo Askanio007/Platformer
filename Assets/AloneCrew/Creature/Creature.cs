@@ -14,7 +14,7 @@ namespace AloneCrew
 
         [Header("Params")][SerializeField] private bool _invertScale;
         [SerializeField] private LayerCheck _groundCheck;
-        [SerializeField] private CheckCircleOverlap _attackRange;
+        [SerializeField] private ICheckOverlap _attackRange;
         
         [SerializeField] protected SpawnListComponent _particles;
         [SerializeField] private float _longFly;
@@ -80,7 +80,7 @@ namespace AloneCrew
             _rigedbody.linearVelocity = new Vector2(xVelocity, yVelocity);
 
             _animator.SetBool(isGroundedKey, _isGrounded);
-            _animator.SetBool(isRunningKey, _direction.x != 0);
+            _animator.SetBool(isRunningKey, _direction.x != 0 && _speed > 0);
             _animator.SetFloat(verticalVelocityKey, _rigedbody.linearVelocity.y);
 
             UpdateSpriteDirection();
