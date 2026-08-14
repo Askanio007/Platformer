@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3959273097520202103}
   - component: {fileID: 3994262869397819205}
+  - component: {fileID: 5870301709595162972}
   m_Layer: 10
   m_Name: DeadSmoker
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 0b62313ad549f5c4baf289edecc5fd1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36ed447cd7b10944899e963e7f64bd6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,3 +92,31 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5870301709595162972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406517031481477146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffae4a67db3c383418da2f49974ec0b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.SpriteAnimationComponent
+  _isPlaying: 1
+  _firstClipName: init
+  states:
+  - Name: init
+    Loop: 0
+    AllowNext: 0
+    spriteAfterAnimation: {fileID: 21300000, guid: 36ed447cd7b10944899e963e7f64bd6e, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 0b62313ad549f5c4baf289edecc5fd1e, type: 3}
+    - {fileID: 21300000, guid: 14a42501cedf25042853488378f1ab62, type: 3}
+    - {fileID: 21300000, guid: 7fb82baa418447d448dca396673d7334, type: 3}
+    - {fileID: 21300000, guid: 36ed447cd7b10944899e963e7f64bd6e, type: 3}
+    FrameRate: 5
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []

@@ -5,27 +5,19 @@ using UnityEngine;
 
 namespace AloneCrew
 {
-    public class MobAI : MonoBehaviour
+    public class MobAI : AbstractMobAI
     {
-        [SerializeField] private LayerCheck _vision;
-        [SerializeField] private LayerCheck _canAttack;
-        
-        [SerializeField] private float _alarmDelay = 0.5f;
-        [SerializeField] private float _attackCooldown = 1.5f;
-
-        private Coroutine _current;
-        private GameObject _target;
         private PatrollingCreature _creature;
-        private bool _isDead;
 
-        private SpawnListComponent _particles;
-        private Animator _animator;
-
-        private void Awake()
+        protected override void Awake()
         {
-            _particles = GetComponent<SpawnListComponent>();
+            base.Awake();
             _creature = GetComponent<PatrollingCreature>();
-            _animator = GetComponent<Animator>();
+        }
+
+        protected override Creature GetCreature()
+        {
+            return _creature;
         }
         
         private void Start()
@@ -58,6 +50,7 @@ namespace AloneCrew
         private IEnumerator AgroToHero()
         {
             _particles.Spawn("Exclamation");
+            GetCreature().SetDirection(Vector2.zero);
             yield return new WaitForSeconds(_alarmDelay);
             StartState(GoToHero());
             
@@ -71,7 +64,11 @@ namespace AloneCrew
                 {
                     StartState(Attack());
                 }
-                else
+                if (!_creature.GroundForwardExist())
+                {
+                    GetCreature().SetDirection(Vector2.zero);
+                }
+                else if (!_canAttack.IsTouchingLayer)
                 {
                     SetDirectionToTarget();
                 }
@@ -84,36 +81,11 @@ namespace AloneCrew
         {
             while (_canAttack.IsTouchingLayer)
             {
+                GetCreature().SetDirection(Vector2.zero);
                 _creature.Attack();
                 yield return new WaitForSeconds(_attackCooldown);
             }
             StartState(GoToHero());
-        }
-
-        private void SetDirectionToTarget()
-        {
-            var direction = _target.transform.position - transform.position;
-            direction.y = 0;
-            _creature.SetDirection(direction.normalized);
-        }
-
-        private void StartState(IEnumerator coroutine)
-        {
-            _creature.SetDirection(Vector2.zero);
-            if (_isDead) return;
-            if (_current != null)
-            {
-                StopCoroutine(_current);
-            }
-            _current = StartCoroutine(coroutine);
-        }
-            
-        public void OnDie()
-        {
-            _isDead = true;
-            _animator.SetTrigger("is-dead");
-            if (_current != null)
-                StopCoroutine(_current);
         }
     }
 }

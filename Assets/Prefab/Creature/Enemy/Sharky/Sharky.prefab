@@ -792,7 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.MobAI
   _vision: {fileID: 8967224006040699512}
-  _canAttack: {fileID: 5443286762278499307}
+  _canAttack: {fileID: 1831406988984665892}
   _alarmDelay: 0.5
   _attackCooldown: 1.5
 --- !u!114 &6331129025030538640
@@ -1096,9 +1096,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1096516016534052136}
+  - component: {fileID: 170263930311025158}
   - component: {fileID: 122014118064581025}
-  - component: {fileID: 8846259369461077065}
-  - component: {fileID: 5443286762278499307}
+  - component: {fileID: 1831406988984665892}
   m_Layer: 0
   m_Name: AttackPosition
   m_TagString: Untagged
@@ -1121,21 +1121,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9051125465453885845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &122014118064581025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9080095167068853474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ceef9aff4cd4e6287a5a71adbf58cba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CheckCircleOverlap
-  _radius: 0.3
-  _tag: Player
---- !u!58 &8846259369461077065
+--- !u!58 &170263930311025158
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1165,13 +1151,30 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
---- !u!114 &5443286762278499307
+  m_Radius: 0.3
+--- !u!114 &122014118064581025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080095167068853474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ceef9aff4cd4e6287a5a71adbf58cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CheckCircleOverlap
+  _radius: 0.3
+  _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1831406988984665892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1186,4 +1189,4 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 8
-  IsTouchingLayer: 1
+  IsTouchingLayer: 0

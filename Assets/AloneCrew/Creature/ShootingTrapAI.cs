@@ -39,6 +39,11 @@ namespace AloneCrew
         {
             _rangeAttack.Spawn();
         }
+        
+        public void TakeDamage()
+        {
+            _animator.SetTrigger("hit");
+        }
 
     }
 }

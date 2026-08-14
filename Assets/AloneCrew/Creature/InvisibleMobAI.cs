@@ -5,30 +5,22 @@ using UnityEngine;
 
 namespace AloneCrew
 {
-    public class InvisibleMobAI : MonoBehaviour
+    public class InvisibleMobAI : AbstractMobAI
     {
-        [SerializeField] private LayerCheck _vision;
-        [SerializeField] private LayerCheck _canAttack;
-        
-        [SerializeField] private float _alarmDelay = 0.5f;
-        [SerializeField] private float _attackCooldown = 1.5f;
         [SerializeField] private float _attackDelay = 0.05f;
-
-        private Coroutine _current;
-        private GameObject _target;
+        [SerializeField] private float _invisTimeSec = 1f;
         private Creature _creature;
-        private bool _isDead;
         private bool _isAttack;
-        private Animator _animator;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _creature = GetComponent<Creature>();
-            _animator = GetComponent<Animator>();
         }
         
-        private void Start()
+        protected override Creature GetCreature()
         {
+            return _creature;
         }
 
         public void OnHeroInVision(GameObject go)
@@ -39,11 +31,6 @@ namespace AloneCrew
                 StartState(AgroToHero());
             }
         }
-
-        private IEnumerator MissHero()
-        {
-            yield return new WaitForSeconds(_alarmDelay);
-        }
         
         private IEnumerator AgroToHero()
         {
@@ -53,15 +40,14 @@ namespace AloneCrew
             
         }
         
-        
-        
         private IEnumerator DoInvisible()
         {
             if (_vision.IsTouchingLayer)
             {
+                transform.gameObject.layer = LayerMask.NameToLayer("Trash");
                 _isAttack = true;
                 _animator.SetBool("is-invis", true);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(_invisTimeSec);
                 var backPoint = _target.GetComponent<BackPointComponent>();
                 if (backPoint != null)
                 {
@@ -70,6 +56,7 @@ namespace AloneCrew
                     StartState(Attack());
                 }
                 _animator.SetBool("is-invis", false);
+                transform.gameObject.layer = LayerMask.NameToLayer("Enemy");
             }
         }
 
@@ -78,35 +65,9 @@ namespace AloneCrew
             Debug.Log("Attack!");
             yield return new WaitForSeconds(_attackDelay);
             _creature.Attack(); 
-            _isAttack = false;
             yield return new WaitForSeconds(_attackCooldown);
+            _isAttack = false;
             StartState(DoInvisible());
-        }
-
-        private void SetDirectionToTarget()
-        {
-            var direction = _target.transform.position - transform.position;
-            direction.y = 0;
-            _creature.SetDirection(direction.normalized);
-
-        }
-
-        private void StartState(IEnumerator coroutine)
-        {
-            if (_isDead) return;
-            if (_current != null)
-            {
-                StopCoroutine(_current);
-            }
-            _current = StartCoroutine(coroutine);
-        }
-            
-        public void OnDie()
-        {
-            _isDead = true;
-            _animator.SetTrigger("is-dead");
-            if (_current != null)
-                StopCoroutine(_current);
         }
     }
 }

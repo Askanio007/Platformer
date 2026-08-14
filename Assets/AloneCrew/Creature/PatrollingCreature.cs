@@ -22,5 +22,11 @@ namespace AloneCrew
             }
             SetDirection(_patrollingDirection);
         }
+
+        public bool GroundForwardExist()
+        {
+            return _forwardGroundCheck.IsTouchingLayer;
+        }
+        
     }
 }

@@ -6232,7 +6232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1096516016534052136}
   - component: {fileID: 122014118064581025}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -6268,3 +6268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CheckCircleOverlap
   _radius: 0.3
   _tag: Enemy
+  _layer:
+    serializedVersion: 2
+    m_Bits: 1023
