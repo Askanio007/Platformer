@@ -1,4 +1,5 @@
 ﻿using System;
+using AloneCrew.Model.Data.Properties;
 using UnityEngine;
 
 namespace AloneCrew.Model.Data
@@ -7,7 +8,7 @@ namespace AloneCrew.Model.Data
     public class PlayerData
     {
         [SerializeField] public InventoryData _inventory;
-        public int Hp;
+        public IntPersistentProperty Hp = new IntPersistentProperty(1);
         public bool IsArmed;
         public InventoryData Inventory => _inventory;
         public PlayerData Clone()

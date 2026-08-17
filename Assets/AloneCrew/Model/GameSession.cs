@@ -1,5 +1,6 @@
 ﻿using AloneCrew.Model.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace AloneCrew.Model
 {
@@ -11,6 +12,7 @@ namespace AloneCrew.Model
 
         private void Awake()
         {
+            LoadHud();
             var existSession = GetSessionExist();
             if (existSession != null)
             {
@@ -22,6 +24,11 @@ namespace AloneCrew.Model
                 _initData = Data.Clone();
                 DontDestroyOnLoad(gameObject);
             }
+        }
+
+        private void LoadHud()
+        {
+            SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
         }
 
         public void Reset()

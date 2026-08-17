@@ -70,7 +70,7 @@ namespace AloneCrew
         {
             _gameSession = FindFirstObjectByType<GameSession>();
             AddInInventory("Sword", 5);
-            GetComponent<HealthComponent>().SetHealth(_gameSession.Data.Hp);
+            GetComponent<HealthComponent>().SetHealth(_gameSession.Data.Hp.Value);
             UpdateAnimator();
         }
 
@@ -92,7 +92,7 @@ namespace AloneCrew
 
         public void OnHealthChange(int health)
         {
-            _gameSession.Data.Hp = health;
+            _gameSession.Data.Hp.Value = health;
         }
 
 
