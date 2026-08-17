@@ -370,9 +370,9 @@ GameObject:
   - component: {fileID: 52207976433376050}
   - component: {fileID: 6566735460576038610}
   - component: {fileID: 7249772273293067089}
-  - component: {fileID: 1212629162333432120}
   - component: {fileID: 3992100702575029941}
   - component: {fileID: 2037110862460152614}
+  - component: {fileID: 6331129025030538640}
   m_Layer: 9
   m_Name: Sharky
   m_TagString: Enemy
@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 5050551680893441804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.3, y: 1.92, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -399,8 +399,10 @@ Transform:
   - {fileID: 1096516016534052136}
   - {fileID: 4566794096870665422}
   - {fileID: 4808585146704753420}
+  - {fileID: 7744094164859366714}
   - {fileID: 5332571822163088913}
   - {fileID: 3175631025719018458}
+  - {fileID: 4443966755586068049}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1655465977182363629
@@ -565,8 +567,8 @@ MonoBehaviour:
   _onDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1212629162333432120}
-        m_TargetAssemblyTypeName: AloneCrew.Creature, Assembly-CSharp
+      - m_Target: {fileID: 6331129025030538640}
+        m_TargetAssemblyTypeName: AloneCrew.PatrollingCreature, Assembly-CSharp
         m_MethodName: TakeDamage
         m_Mode: 1
         m_Arguments:
@@ -595,13 +597,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AloneCrew.Hero, Assembly-CSharp
-        m_MethodName: OnHealthChange
-        m_Mode: 0
+      - m_Target: {fileID: 4737280999279327259}
+        m_TargetAssemblyTypeName: AloneCrew.Components.SpawnComponent, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -610,6 +609,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3992100702575029941}
+        m_TargetAssemblyTypeName: AloneCrew.Components.DestroyObjectComponent, Assembly-CSharp
+        m_MethodName: DoDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &52207976433376050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,27 +766,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1212629162333432120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5050551680893441804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e36e9523154443b3a28ed22a9a52c053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Creature
-  _speed: 3
-  _jumpSpeed: 0
-  _damageVelocity: 1
-  _attack: 1
-  _invertScale: 1
-  _groundCheck: {fileID: 7165556618079113718}
-  _attackRange: {fileID: 122014118064581025}
-  _particles: {fileID: 52207976433376050}
-  _longFly: 10
 --- !u!114 &3992100702575029941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,9 +792,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.MobAI
   _vision: {fileID: 8967224006040699512}
-  _canAttack: {fileID: 5443286762278499307}
+  _canAttack: {fileID: 1831406988984665892}
   _alarmDelay: 0.5
   _attackCooldown: 1.5
+--- !u!114 &6331129025030538640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050551680893441804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2eada7a4f1542f7a95152181b817eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.PatrollingCreature
+  _speed: 3
+  _jumpSpeed: 0
+  _damageVelocity: 1
+  _attack: 1
+  _invertScale: 1
+  _groundCheck: {fileID: 7165556618079113718}
+  _attackRange: {fileID: 122014118064581025}
+  _particles: {fileID: 52207976433376050}
+  _longFly: 10
+  _isGrounded: 0
+  _forwardGroundCheck: {fileID: 8189085758030931530}
+  _patrollingDirection: {x: 0, y: 0}
 --- !u!1 &6872468203665357676
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +865,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.SpawnComponent
   _target: {fileID: 7186638302951895499}
   _prefab: {fileID: 7091262193587820454, guid: 1fe7e4799d8d4114e9ebfa9aad32eb72, type: 3}
+--- !u!1 &6973453404223594259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4443966755586068049}
+  - component: {fileID: 4737280999279327259}
+  m_Layer: 9
+  m_Name: DeadPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4443966755586068049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973453404223594259}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9051125465453885845}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4737280999279327259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973453404223594259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bef05e0c944d4bb6057e47d0d3b2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.SpawnComponent
+  _target: {fileID: 4443966755586068049}
+  _prefab: {fileID: 4406517031481477146, guid: 23bf2f50d77f94f9581580184621e093, type: 3}
 --- !u!1 &7791807776361477194
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +1002,91 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8916040643051647101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7744094164859366714}
+  - component: {fileID: 8189085758030931530}
+  - component: {fileID: 6131521074325260683}
+  m_Layer: 0
+  m_Name: ForwardGroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7744094164859366714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916040643051647101}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.855, y: 0.136, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9051125465453885845}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8189085758030931530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916040643051647101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25e25a4e94e44e5be17223b5433480c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.LayerCheck
+  _layer:
+    serializedVersion: 2
+    m_Bits: 64
+  IsTouchingLayer: 0
+--- !u!58 &6131521074325260683
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916040643051647101}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.09
 --- !u!1 &9080095167068853474
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,9 +1096,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1096516016534052136}
+  - component: {fileID: 170263930311025158}
   - component: {fileID: 122014118064581025}
-  - component: {fileID: 8846259369461077065}
-  - component: {fileID: 5443286762278499307}
+  - component: {fileID: 1831406988984665892}
   m_Layer: 0
   m_Name: AttackPosition
   m_TagString: Untagged
@@ -973,21 +1121,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9051125465453885845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &122014118064581025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9080095167068853474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ceef9aff4cd4e6287a5a71adbf58cba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CheckCircleOverlap
-  _radius: 0.3
-  _tag: Player
---- !u!58 &8846259369461077065
+--- !u!58 &170263930311025158
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1017,13 +1151,30 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
---- !u!114 &5443286762278499307
+  m_Radius: 0.3
+--- !u!114 &122014118064581025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080095167068853474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ceef9aff4cd4e6287a5a71adbf58cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CheckCircleOverlap
+  _radius: 0.3
+  _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1831406988984665892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1038,4 +1189,4 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 8
-  IsTouchingLayer: 1
+  IsTouchingLayer: 0

@@ -7,14 +7,15 @@ using UnityEngine.XR;
 
 namespace AloneCrew
 {
-    public class CheckCircleOverlap : MonoBehaviour
+    public class CheckCircleOverlap : ICheckOverlap
     {
         [SerializeField] private float _radius;
         [SerializeField] private string _tag;
+        [SerializeField] private LayerMask _layer = ~0;
 
-        public GameObject[] GetObjectsInRange()
-        {
-            var colliders = Physics2D.OverlapCircleAll(transform.position, _radius);
+        public override GameObject[] GetObjectsInRange()
+        { 
+            var colliders = Physics2D.OverlapCircleAll(transform.position, _radius, _layer.value);
             var result = new List<GameObject>();
             foreach (var collider in colliders)
             {
