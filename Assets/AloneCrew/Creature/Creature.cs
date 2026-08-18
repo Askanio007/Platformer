@@ -2,6 +2,7 @@
 using AloneCrew.Utils;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 namespace AloneCrew
 {
@@ -24,6 +25,7 @@ namespace AloneCrew
         protected Animator _animator;
         public bool _isGrounded;
         private bool _needFallDust;
+        private Canvas _canvas;
         
         private static readonly int isGroundedKey = Animator.StringToHash("is-grounded");
         private static readonly int isRunningKey = Animator.StringToHash("is-running");
@@ -43,6 +45,8 @@ namespace AloneCrew
         {
             _rigedbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _canvas = GetComponentInChildren<Canvas>();
+            
         }
         
         public void SetDirection(Vector2 direction)
@@ -116,6 +120,7 @@ namespace AloneCrew
         private void UpdateSpriteDirection()
         {
             var multiplier = _invertScale ? -1 : 1;
+            var oldValueCanvas = transform.localScale.x;
             if (_direction.x > 0)
             {
                 transform.localScale = new Vector3(multiplier, 1, 1);
@@ -123,6 +128,10 @@ namespace AloneCrew
             else if (_direction.x < 0)
             {
                 transform.localScale = new Vector3(-1 * multiplier, 1, 1);
+            }
+            if (_canvas != null)
+            {
+                _canvas.transform.localScale = new Vector3(oldValueCanvas, 1, 1);;
             }
         }
 
