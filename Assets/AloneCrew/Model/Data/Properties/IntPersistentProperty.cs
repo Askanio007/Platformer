@@ -4,10 +4,11 @@ using UnityEngine;
 namespace AloneCrew.Model.Data.Properties
 {
     [Serializable]
-    public class IntPersistentProperty : PersistentProperty<int>
+    public class IntPersistentProperty : ObservabilityProperty<int>
     {
         public IntPersistentProperty(int defaultValue) : base(defaultValue)
         {
+            Init();
         }
 
         protected override void Write(int value)
