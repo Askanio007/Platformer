@@ -25,7 +25,7 @@ namespace AloneCrew
         protected Animator _animator;
         public bool _isGrounded;
         private bool _needFallDust;
-        private Canvas _canvas;
+        public Image HealthCanvas;
         
         private static readonly int isGroundedKey = Animator.StringToHash("is-grounded");
         private static readonly int isRunningKey = Animator.StringToHash("is-running");
@@ -45,8 +45,12 @@ namespace AloneCrew
         {
             _rigedbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _canvas = GetComponentInChildren<Canvas>();
-            
+            var canvas = GetComponentInChildren<Canvas>();
+            if (canvas != null)
+            {
+                HealthCanvas = canvas.GetComponentInChildren<Image>();
+            }
+
         }
         
         public void SetDirection(Vector2 direction)
@@ -129,9 +133,9 @@ namespace AloneCrew
             {
                 transform.localScale = new Vector3(-1 * multiplier, 1, 1);
             }
-            if (_canvas != null)
+            if (HealthCanvas != null)
             {
-                _canvas.transform.localScale = new Vector3(oldValueCanvas, 1, 1);;
+                HealthCanvas.transform.localScale = new Vector3(oldValueCanvas, 1, 1);;
             }
         }
 

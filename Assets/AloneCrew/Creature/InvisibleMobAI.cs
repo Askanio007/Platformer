@@ -46,6 +46,7 @@ namespace AloneCrew
             {
                 transform.gameObject.layer = LayerMask.NameToLayer("Trash");
                 _isAttack = true;
+                _creature.HealthCanvas.enabled = false;
                 _animator.SetBool("is-invis", true);
                 yield return new WaitForSeconds(_invisTimeSec);
                 var backPoint = _target.GetComponent<BackPointComponent>();
@@ -56,6 +57,7 @@ namespace AloneCrew
                     StartState(Attack());
                 }
                 _animator.SetBool("is-invis", false);
+                _creature.HealthCanvas.enabled = true;
                 transform.gameObject.layer = LayerMask.NameToLayer("Enemy");
             }
         }

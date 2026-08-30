@@ -555,6 +555,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5747625534248873076, guid: fb3d560edfe5442febd4f9cb2af6dcd7, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8763005458214640574, guid: fb3d560edfe5442febd4f9cb2af6dcd7, type: 3}
       propertyPath: m_Name
       value: MobHealthBar

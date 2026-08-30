@@ -5,8 +5,14 @@ namespace AloneCrew.Components
 {
     public class PlaySoundComponent : MonoBehaviour
     {
-        [SerializeField] private AudioSource _source;
+        private AudioSource _source;
         [SerializeField] private AudioData[] _sounds;
+
+        public void Start()
+        {
+            _source = GameObject.FindGameObjectWithTag("SfxAudioSource").GetComponent<AudioSource>();
+            
+        }
 
         public void Play(string id)
         {
