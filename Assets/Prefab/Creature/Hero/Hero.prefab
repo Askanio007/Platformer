@@ -5373,6 +5373,8 @@ MonoBehaviour:
   _attackRange: {fileID: 122014118064581025}
   _particles: {fileID: 52207976433376050}
   _longFly: -15
+  _animator: {fileID: 2715278387837233822}
+  _vision: {fileID: 9051125465453885845}
   _isGrounded: 0
   _interactLayer:
     serializedVersion: 2
@@ -5763,7 +5765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186dfe6175d94eecb6d3ec648fcd45f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.PlaySoundComponent
-  _source: {fileID: 8901141910125106511}
   _sounds:
   - _id: die
     _clip: {fileID: 8300000, guid: e620d0c0938a2234eb30c21c9f2dbccd, type: 3}
