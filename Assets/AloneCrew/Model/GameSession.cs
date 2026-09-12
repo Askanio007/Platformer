@@ -1,4 +1,6 @@
-﻿using AloneCrew.Model.Data;
+﻿using System;
+using AloneCrew.Model.Data;
+using AloneCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +11,7 @@ namespace AloneCrew.Model
         [SerializeField] private PlayerData _data;
         public PlayerData Data => _data;
         private PlayerData _initData;
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventoryModel { get;  private set; }
 
         private void Awake()
@@ -36,6 +39,7 @@ namespace AloneCrew.Model
         private void InitModels()
         {
             QuickInventoryModel = new QuickInventoryModel(_data);
+            _trash.Retain(QuickInventoryModel);
         }
 
         public void Reset()
@@ -56,6 +60,10 @@ namespace AloneCrew.Model
             }
             return null;
         }
-        
+
+        private void OnDestroy()
+        {
+            _trash.Dispose();
+        }
     }
 }

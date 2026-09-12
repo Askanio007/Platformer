@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AloneCrew.Model;
 using AloneCrew.Model.Data;
 using AloneCrew.Utils.Disposables;
@@ -47,6 +48,10 @@ namespace AloneCrew.UI.Hud.QuickInventory
                 _createdItems[i].gameObject.SetActive(false);
             }
         }
-        
+
+        public void OnDestroy()
+        {
+            _trash.Dispose();
+        }
     }
 }

@@ -1,6 +1,8 @@
-﻿using AloneCrew.Model;
+﻿using System;
+using AloneCrew.Model;
 using AloneCrew.Model.Data;
 using AloneCrew.Model.Definitions;
+using AloneCrew.Utils.Disposables;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,12 +15,14 @@ namespace AloneCrew.UI.Hud.QuickInventory
         [SerializeField] private GameObject _selction;
         [SerializeField] private TextMeshProUGUI _value;
 
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
+        
         private int _index;
 
         private void Start()
         {
             var session = FindAnyObjectByType<GameSession>();
-            session.QuickInventoryModel.SelectedIndex.SubscribeAndInvoke(OnIndexChanged);
+            _trash.Retain(session.QuickInventoryModel.SelectedIndex.SubscribeAndInvoke(OnIndexChanged));
         }
 
         public void OnIndexChanged(int newValue, int _)
@@ -33,7 +37,10 @@ namespace AloneCrew.UI.Hud.QuickInventory
             _icon.sprite = def.Icon;
             _value.text = def.HasTag(ItemTag.Stackable) ? item.Value.ToString() : string.Empty;
         }
-        
-        
+
+        private void OnDestroy()
+        {
+            _trash.Dispose();
+        }
     }
 }
