@@ -1552,7 +1552,7 @@ MonoBehaviour:
         Value: 10
       - Id: Coin
         Value: 3
-      - Id: LowHealthPotion
+      - Id: SpeedPotion
         Value: 3
     Hp:
       _value: 2
@@ -8427,28 +8427,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9051125465453885845, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
   m_PrefabInstance: {fileID: 2141549187}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1001111164 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-  m_PrefabInstance: {fileID: 2141549187}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3231cef28fe38094ea9b26e97e588e5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.HealthComponent
---- !u!114 &1001111169 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6756376545143834761, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-  m_PrefabInstance: {fileID: 2141549187}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3e04c5e09abf664c9aaf3d02ee60191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1001 &1029930649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19328,54 +19306,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _id
-      value: BigHealthPotion
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _id.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: '_id.Array.data[0]'
-      value: BigHealthPotion
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: '_id.Array.data[1]'
-      value: LowHealthPotion
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1001111164}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ApplyDamage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AloneCrew.Components.HealthComponent, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5050551680893441804, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: m_Name
       value: Hero
@@ -19384,50 +19314,6 @@ PrefabInstance:
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 684245187}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1001111169}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1001111169}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnNextItem
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnHeal
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AloneCrew.HeroInputReader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AloneCrew.HeroInputReader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 9051125465453885845, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.65

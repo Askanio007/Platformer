@@ -40,4 +40,4 @@ MonoBehaviour:
   - _id: SpeedPotion
     _tags: 0000000001000000
     _icon: {fileID: 2011574832808370117, guid: 23a0f80ec39513140a2f2f2faf5ff4e9, type: 3}
-    _value: 2
+    _value: 7
