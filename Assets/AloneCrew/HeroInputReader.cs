@@ -51,6 +51,14 @@ namespace AloneCrew
             }
         }
         
+        public void OnNextItem(InputAction.CallbackContext context)
+        {
+            if(context.started)
+            {
+                _hero.NextItem();
+            }
+        }
+        
         public void OnHeal(InputAction.CallbackContext context)
         {
             if(context.started)

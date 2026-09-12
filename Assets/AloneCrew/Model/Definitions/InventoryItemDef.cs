@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace AloneCrew.Model.Definitions
@@ -28,9 +29,18 @@ namespace AloneCrew.Model.Definitions
     public struct ItemDef
     {
         [SerializeField] private string _id;
-        [SerializeField] private bool _stackable;
+        [SerializeField] private ItemTag[] _tags;
+        [SerializeField] private Sprite _icon;
+        [SerializeField] private int _value;
         public string Id => _id;
-        public bool Stackable => _stackable;
+        public int Value => _value;
+        public ItemTag[]  ItemTags => _tags;
+        public Sprite Icon => _icon;
         public bool IsVoid => string.IsNullOrEmpty(_id);
+
+        public bool HasTag(ItemTag tag)
+        {
+            return _tags.Contains(tag);
+        }
     }
 }

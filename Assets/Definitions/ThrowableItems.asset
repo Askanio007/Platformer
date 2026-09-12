@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81b271c26a744c9bfaf691cad4ced06, type: 3}
+  m_Name: ThrowableItems
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Model.Definitions.ThrowableItemsDef
+  _items:
+  - _id: PearlProjectile
+    _projectile: {fileID: 7266985269001409274, guid: 88cf9af07aa87c741b5331c715d1cf87, type: 3}
+  - _id: Sword
+    _projectile: {fileID: 2764175815312048368, guid: 91708961c9737964fbc4de7623a6a631, type: 3}

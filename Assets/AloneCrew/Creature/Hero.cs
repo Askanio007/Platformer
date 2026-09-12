@@ -2,6 +2,8 @@ using System.Collections;
 using AloneCrew.Components;
 using AloneCrew.Interaction;
 using AloneCrew.Model;
+using AloneCrew.Model.Data;
+using AloneCrew.Model.Definitions;
 using AloneCrew.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -15,7 +17,7 @@ namespace AloneCrew
         [SerializeField] private float _interactCheckRadius;
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private ParticleSystem _hitParticles;
-        
+        [SerializeField] protected SpawnComponent _throwable;
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
         
@@ -25,6 +27,8 @@ namespace AloneCrew
         
         private GameSession _gameSession;
         private PlaySoundComponent _sounds;
+        
+        private InventoryItemData SelectedItem => _gameSession.QuickInventoryModel.SelectedItem;
         
         void Start()
         {
@@ -50,16 +54,24 @@ namespace AloneCrew
 
         public void Heal()
         {
-            _gameSession.Data.Inventory.Remove("HealPotion", 1);
+            var item = SelectedItem;
             var healthComponent = GetComponent<RequireItemComponent>();
             if (healthComponent != null)
             {
-                healthComponent.Check();
+                healthComponent.Check(item.Id);
             }
         }
         
+        public void NextItem()
+        {
+            _gameSession.QuickInventoryModel.SetNextItem();
+        }
         
-
+        public void UseItem()
+        {
+            
+        }
+        
         public void UpdateArm()
         {
             _gameSession.Data.IsArmed = !_gameSession.Data.IsArmed;
@@ -200,16 +212,26 @@ namespace AloneCrew
 
         private bool TryThrow()
         {
-            var swordCount = _gameSession.Data.Inventory.Count("Sword");
+            var throwId =  _gameSession.QuickInventoryModel.SelectedItem.Id;
+            var swordCount = _gameSession.Data.Inventory.Count(throwId);
             if (swordCount > MIN_SWORD_COUNT)
             {
                 base.Throw();
-                _gameSession.Data.Inventory.Remove("Sword", 1);
+                _gameSession.Data.Inventory.Remove(throwId, 1);
                 _sounds.Play(soundThrowKey);
                 return true;
             }
             return false;
         }
+        
+        public override void DoThrow()
+        {
+            var id = _gameSession.QuickInventoryModel.SelectedItem.Id;
+            _throwable.SetPrefabAndSpawn(DefsFacade.I.ThrowableItems.Get(id).Projectile);
+        }
+        
+        
+        
         
         
     }

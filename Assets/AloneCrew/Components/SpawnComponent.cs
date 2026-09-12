@@ -16,5 +16,11 @@ namespace AloneCrew.Components
             instantiate.transform.localScale = _target.lossyScale;
         }
 
+        public void SetPrefabAndSpawn(GameObject prefab)
+        {
+            _prefab = prefab;
+            Spawn();
+        }
+
     }
 }

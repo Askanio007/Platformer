@@ -9,6 +9,7 @@ namespace AloneCrew.Model
         [SerializeField] private PlayerData _data;
         public PlayerData Data => _data;
         private PlayerData _initData;
+        public QuickInventoryModel QuickInventoryModel { get;  private set; }
 
         private void Awake()
         {
@@ -22,6 +23,7 @@ namespace AloneCrew.Model
             else
             {
                 _initData = Data.Clone();
+                InitModels();
                 DontDestroyOnLoad(gameObject);
             }
         }
@@ -29,6 +31,11 @@ namespace AloneCrew.Model
         private void LoadHud()
         {
             SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
+        }
+
+        private void InitModels()
+        {
+            QuickInventoryModel = new QuickInventoryModel(_data);
         }
 
         public void Reset()
