@@ -39,10 +39,6 @@ namespace AloneCrew.Components
             }
         }
         
-        [Serializable]
-        public class HealthChange : UnityEvent<int>
-        {}
-        
         
     }
 }
