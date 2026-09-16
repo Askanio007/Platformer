@@ -29,7 +29,7 @@ namespace AloneCrew.UI.Hud.QuickInventory
             var inventory = _session.QuickInventoryModel.Inventory;
             
             //create items
-            for (var i = _createdItems.Count - 1; i < inventory.Length; i++)
+            for (var i = _createdItems.Count; i < inventory.Length; i++)
             {
                 var item = Instantiate(_prefab, _container);
                 _createdItems.Add(item);

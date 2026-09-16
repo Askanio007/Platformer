@@ -27,8 +27,10 @@ namespace AloneCrew.Model.Definitions
     {
         [InventoryId] [SerializeField] private string _id;
         [SerializeField] private GameObject _projectile;
+        [SerializeField] private int _minAfterThrow;
 
         public string Id => _id;
         public GameObject Projectile => _projectile;
+        public int MinAfterThrow => _minAfterThrow;
     }
 }

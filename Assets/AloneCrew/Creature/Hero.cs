@@ -12,7 +12,6 @@ namespace AloneCrew
 {
     public class Hero : Creature
     {
-        private const int MIN_SWORD_COUNT = 1;
         [SerializeField] private LayerMask _interactLayer;
         [SerializeField] private float _interactCheckRadius;
         [SerializeField] private Cooldown _throwCooldown;
@@ -55,6 +54,10 @@ namespace AloneCrew
         public void Heal()
         {
             var item = SelectedItem;
+            var itemDef = DefsFacade.I.Items.Get(item.Id);
+            
+            if (!itemDef.HasTag(ItemTag.Usable)) return;
+            
             var healthComponent = GetComponent<RequireItemComponent>();
             if (healthComponent != null)
             {
@@ -65,11 +68,6 @@ namespace AloneCrew
         public void NextItem()
         {
             _gameSession.QuickInventoryModel.SetNextItem();
-        }
-        
-        public void UseItem()
-        {
-            
         }
         
         public void UpdateArm()
@@ -213,8 +211,15 @@ namespace AloneCrew
         private bool TryThrow()
         {
             var throwId =  _gameSession.QuickInventoryModel.SelectedItem.Id;
-            var swordCount = _gameSession.Data.Inventory.Count(throwId);
-            if (swordCount > MIN_SWORD_COUNT)
+            
+            var itemDef =  DefsFacade.I.Items.Get(throwId);
+            if (!itemDef.HasTag(ItemTag.Throwable)) return false;
+            
+            var throwItemDef =  DefsFacade.I.ThrowableItems.Get(throwId);
+            if (throwItemDef.Id == null) return false;
+            
+            var throwableCount = _gameSession.Data.Inventory.Count(throwId);
+            if (throwableCount > throwItemDef.MinAfterThrow)
             {
                 base.Throw();
                 _gameSession.Data.Inventory.Remove(throwId, 1);
@@ -229,10 +234,6 @@ namespace AloneCrew
             var id = _gameSession.QuickInventoryModel.SelectedItem.Id;
             _throwable.SetPrefabAndSpawn(DefsFacade.I.ThrowableItems.Get(id).Projectile);
         }
-        
-        
-        
-        
         
     }
     
