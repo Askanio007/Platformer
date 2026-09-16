@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DefsFacade
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Model.Definitions.DefsFacade
   _items: {fileID: 11400000, guid: 3b3f8dffd0bf8a84f8b58ae9be16f50e, type: 2}
-  _inventorySize: 5
+  _player: {fileID: 11400000, guid: 083e5eeb7685d4ae5865ede20d2a099e, type: 2}

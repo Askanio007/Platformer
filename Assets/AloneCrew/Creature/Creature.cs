@@ -2,6 +2,7 @@
 using AloneCrew.Utils;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 namespace AloneCrew
 {
@@ -18,6 +19,7 @@ namespace AloneCrew
         
         [SerializeField] protected SpawnListComponent _particles;
         [SerializeField] private float _longFly;
+        [SerializeField] protected Transform _vision;
         
         protected Vector2 _direction;
         protected Rigidbody2D _rigedbody;
@@ -118,11 +120,11 @@ namespace AloneCrew
             var multiplier = _invertScale ? -1 : 1;
             if (_direction.x > 0)
             {
-                transform.localScale = new Vector3(multiplier, 1, 1);
+                _vision.localScale = new Vector3(multiplier, 1, 1);
             }
             else if (_direction.x < 0)
             {
-                transform.localScale = new Vector3(-1 * multiplier, 1, 1);
+                _vision.localScale = new Vector3(-1 * multiplier, 1, 1);
             }
         }
 

@@ -9,6 +9,7 @@ namespace AloneCrew
     {
         [SerializeField] private float _attackDelay = 0.05f;
         [SerializeField] private float _invisTimeSec = 1f;
+        [SerializeField] private Canvas _healthCanvas;
         private Creature _creature;
         private bool _isAttack;
 
@@ -46,6 +47,7 @@ namespace AloneCrew
             {
                 transform.gameObject.layer = LayerMask.NameToLayer("Trash");
                 _isAttack = true;
+                _healthCanvas.enabled = false;
                 _animator.SetBool("is-invis", true);
                 yield return new WaitForSeconds(_invisTimeSec);
                 var backPoint = _target.GetComponent<BackPointComponent>();
@@ -56,6 +58,7 @@ namespace AloneCrew
                     StartState(Attack());
                 }
                 _animator.SetBool("is-invis", false);
+                _healthCanvas.enabled = true;
                 transform.gameObject.layer = LayerMask.NameToLayer("Enemy");
             }
         }

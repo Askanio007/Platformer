@@ -119,24 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &310551757 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6715392913467921721, guid: b17b24e9a3f8dd3448929cad11613737, type: 3}
-  m_PrefabInstance: {fileID: 3713053029961356937}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &310551762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310551757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba846c24b03347e4a381104557819174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.UI.Widgets.ButtonSound
-  _sound: {fileID: 8300000, guid: 4d74538490f5a2a44b95f4594cf9807c, type: 3}
 --- !u!1 &670375321
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,14 +901,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8278899514801454519, guid: b17b24e9a3f8dd3448929cad11613737, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6715392913467921721, guid: b17b24e9a3f8dd3448929cad11613737, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 310551762}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17b24e9a3f8dd3448929cad11613737, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

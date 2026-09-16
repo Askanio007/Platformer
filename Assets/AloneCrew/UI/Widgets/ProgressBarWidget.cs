@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace AloneCrew.UI.Widgets
 {
-    public class ProgressBatWidget : MonoBehaviour
+    public class ProgressBarWidget : MonoBehaviour
     {
         [SerializeField] private Image _bar;
 
