@@ -1,6 +1,5 @@
 using System.Collections;
 using AloneCrew.Components;
-using AloneCrew.Interaction;
 using AloneCrew.Model;
 using AloneCrew.Model.Data;
 using AloneCrew.Model.Definitions;
@@ -27,25 +26,23 @@ namespace AloneCrew
         private GameSession _gameSession;
         private PlaySoundComponent _sounds;
         private HealthComponent _healthComponent;
-        
-        private InventoryItemData SelectedItem => _gameSession.QuickInventoryModel.SelectedItem;
-        
+
         void Start()
         {
             _sounds = GetComponent<PlaySoundComponent>();
             _healthComponent = GetComponent<HealthComponent>();
             InitSession();
-            _gameSession.Data.Inventory.onInventoryChanged += OnInventoryChanged;
+            _gameSession.SubscribeOnInventoryChanged(OnInventoryChanged);
         }
 
         private void OnDestroy()
         {
-            _gameSession.Data.Inventory.onInventoryChanged -= OnInventoryChanged;
+            _gameSession.UnsubscribeOnInventoryChanged(OnInventoryChanged);
         }
 
         public bool AddInInventory(string id, int value)
         {
-           return _gameSession.Data.Inventory.Add(id, value);
+           return _gameSession.AddToInventory(id, value);
         }
 
         public void OnInventoryChanged(string id, int value)
@@ -55,13 +52,13 @@ namespace AloneCrew
 
         public void UsePotion()
         {
-            var item = SelectedItem;
-            var itemDef = DefsFacade.I.Items.Get(item.Id);
-            if (!itemDef.HasTag(ItemTag.Usable)) return;
-            
-            var potionDef = DefsFacade.I.PotionItems.Get(item.Id);
-
-            var potionCount = _gameSession.Data.Inventory.Count(item.Id);
+            var itemId = _gameSession.QuickInvSelectedItemId;
+            PotionDef potionDef;
+            if (!DefsAdapter.TryGetPotionItem(itemId, out potionDef))
+            {
+                return;
+            }
+            var potionCount = _gameSession.CountInInventory(itemId);
 
             if (potionCount > 0)
             {
@@ -78,7 +75,7 @@ namespace AloneCrew
                     Debug.LogWarning($"Unknown potion tag={potionDef.Tag}");
                     return;
                 }
-                _gameSession.Data.Inventory.Remove(item.Id, 1);
+                _gameSession.RemoveFromInventory(itemId, 1);
             }
             
         }
@@ -90,7 +87,7 @@ namespace AloneCrew
         
         public void UpdateArm()
         {
-            _gameSession.Data.IsArmed = !_gameSession.Data.IsArmed;
+            _gameSession.IsArmed = !_gameSession.IsArmed;
             UpdateAnimator();
         }
 
@@ -98,13 +95,13 @@ namespace AloneCrew
         {
             _gameSession = FindFirstObjectByType<GameSession>();
             AddInInventory("Sword", 5);
-            GetComponent<HealthComponent>().SetHealth(_gameSession.Data.Hp.Value);
+            GetComponent<HealthComponent>().SetHealth(_gameSession.Hp);
             UpdateAnimator();
         }
 
         private void UpdateAnimator()
         {
-            _animator.runtimeAnimatorController = _gameSession.Data.IsArmed ? _armed : _disarmed;
+            _animator.runtimeAnimatorController = _gameSession.IsArmed ? _armed : _disarmed;
         }
 
         public void OnDie()
@@ -120,7 +117,7 @@ namespace AloneCrew
 
         public void OnHealthChange(int health)
         {
-            _gameSession.Data.Hp.Value = health;
+            _gameSession.Hp = health;
         }
 
 
@@ -147,7 +144,7 @@ namespace AloneCrew
 
         private void SpawnCoins()
         {
-            var currentCoins = _gameSession.Data.Inventory.Count("Coin");
+            var currentCoins = _gameSession.CountInInventory("Coin");
             if (currentCoins <= 0)
             {
                 return;
@@ -155,7 +152,7 @@ namespace AloneCrew
 
             
             var numberCoinsToDispose = Mathf.Min(currentCoins, 5);
-            _gameSession.Data.Inventory.Remove("Coin", numberCoinsToDispose);
+            _gameSession.RemoveFromInventory("Coin", (int)numberCoinsToDispose);
 
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = numberCoinsToDispose;
@@ -189,14 +186,14 @@ namespace AloneCrew
         
         public override void Attack()
         {
-            if (!_gameSession.Data.IsArmed) return;
+            if (!_gameSession.IsArmed) return;
             base.Attack();
             _sounds.Play(soundMeleeKey);
         }
         
         public override void Throw()
         {
-            if (!_gameSession.Data.IsArmed) return;
+            if (!_gameSession.IsArmed) return;
             if (_throwCooldown.IsReady())
             {
                 if (TryThrow())
@@ -208,7 +205,7 @@ namespace AloneCrew
         
         public void BigThrow()
         {
-            if (!_gameSession.Data.IsArmed || _isThrowing) return;
+            if (!_gameSession.IsArmed || _isThrowing) return;
             _isThrowing = true;
             StartCoroutine(ThrowBatch());
         }
@@ -228,19 +225,17 @@ namespace AloneCrew
 
         private bool TryThrow()
         {
-            var throwId =  _gameSession.QuickInventoryModel.SelectedItem.Id;
-            
-            var itemDef =  DefsFacade.I.Items.Get(throwId);
-            if (!itemDef.HasTag(ItemTag.Throwable)) return false;
-            
-            var throwItemDef =  DefsFacade.I.ThrowableItems.Get(throwId);
-            if (throwItemDef.Id == null) return false;
-            
-            var throwableCount = _gameSession.Data.Inventory.Count(throwId);
+            var throwId =  _gameSession.QuickInvSelectedItemId;
+            ThrowableDef throwItemDef;
+            if (!DefsAdapter.TryGetThrowableItem(throwId, out throwItemDef))
+            {
+                return false;
+            }
+            var throwableCount = _gameSession.CountInInventory(throwId);
             if (throwableCount > throwItemDef.MinAfterThrow)
             {
                 base.Throw();
-                _gameSession.Data.Inventory.Remove(throwId, 1);
+                _gameSession.RemoveFromInventory(throwId, 1);
                 _sounds.Play(soundThrowKey);
                 return true;
             }
@@ -249,8 +244,13 @@ namespace AloneCrew
         
         public override void DoThrow()
         {
-            var id = _gameSession.QuickInventoryModel.SelectedItem.Id;
-            _throwable.SetPrefabAndSpawn(DefsFacade.I.ThrowableItems.Get(id).Projectile);
+            ThrowableDef throwItemDef;
+            if (DefsAdapter.TryGetThrowableItem(_gameSession.QuickInvSelectedItemId, out throwItemDef))
+            {
+                _throwable.SetPrefabAndSpawn(throwItemDef.Projectile);
+            }
+            
+            
         }
         
     }
