@@ -59,11 +59,11 @@ namespace AloneCrew
             }
         }
         
-        public void OnHeal(InputAction.CallbackContext context)
+        public void UsePotion(InputAction.CallbackContext context)
         {
             if(context.started)
             {
-                _hero.Heal();
+                _hero.UsePotion();
             }
         }
         

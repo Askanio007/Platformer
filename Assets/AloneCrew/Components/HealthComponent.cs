@@ -39,6 +39,11 @@ namespace AloneCrew.Components
             }
         }
         
+        public void ApplyHealth(int health)
+        {
+            ApplyDamage(health * (-1));
+        }
+        
         
     }
 }

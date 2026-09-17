@@ -70,7 +70,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UseItem",
+                    "name": "UsePotion",
                     "type": "Button",
                     "id": "7feeb163-8c69-4c16-996b-ca9339fc42e3",
                     "expectedControlType": "",
@@ -208,7 +208,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseItem",
+                    "action": "UsePotion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

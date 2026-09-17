@@ -7,6 +7,7 @@ namespace AloneCrew.Model.Definitions
     {
         [SerializeField] private InventoryItemDef _items;
         [SerializeField] private ThrowableItemsDef _throwableItems;
+        [SerializeField] private PotionItemsDef _potionItems;
 
         [SerializeField] private PlayerDef _player;
         
@@ -15,6 +16,7 @@ namespace AloneCrew.Model.Definitions
         
         public InventoryItemDef Items => _items;
         public ThrowableItemsDef ThrowableItems => _throwableItems;
+        public PotionItemsDef PotionItems => _potionItems;
         public PlayerDef Player => _player;
         public int InventorySize => _player.InventorySize;
 

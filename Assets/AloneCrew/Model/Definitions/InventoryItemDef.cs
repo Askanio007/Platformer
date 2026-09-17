@@ -31,9 +31,7 @@ namespace AloneCrew.Model.Definitions
         [SerializeField] private string _id;
         [SerializeField] private ItemTag[] _tags;
         [SerializeField] private Sprite _icon;
-        [SerializeField] private int _value;
         public string Id => _id;
-        public int Value => _value;
         public ItemTag[]  ItemTags => _tags;
         public Sprite Icon => _icon;
         public bool IsVoid => string.IsNullOrEmpty(_id);

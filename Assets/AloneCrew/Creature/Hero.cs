@@ -26,12 +26,14 @@ namespace AloneCrew
         
         private GameSession _gameSession;
         private PlaySoundComponent _sounds;
+        private HealthComponent _healthComponent;
         
         private InventoryItemData SelectedItem => _gameSession.QuickInventoryModel.SelectedItem;
         
         void Start()
         {
-            _sounds =  GetComponent<PlaySoundComponent>();
+            _sounds = GetComponent<PlaySoundComponent>();
+            _healthComponent = GetComponent<HealthComponent>();
             InitSession();
             _gameSession.Data.Inventory.onInventoryChanged += OnInventoryChanged;
         }
@@ -51,18 +53,34 @@ namespace AloneCrew
             Debug.Log($"Inventory changed {id}: {value}");
         }
 
-        public void Heal()
+        public void UsePotion()
         {
             var item = SelectedItem;
             var itemDef = DefsFacade.I.Items.Get(item.Id);
-            
             if (!itemDef.HasTag(ItemTag.Usable)) return;
             
-            var healthComponent = GetComponent<RequireItemComponent>();
-            if (healthComponent != null)
+            var potionDef = DefsFacade.I.PotionItems.Get(item.Id);
+
+            var potionCount = _gameSession.Data.Inventory.Count(item.Id);
+
+            if (potionCount > 0)
             {
-                healthComponent.Check(item.Id);
+                if (potionDef.Tag == PotionItemTag.Health)
+                {
+                    _healthComponent.ApplyHealth(potionDef.Value);
+                }
+                else if (potionDef.Tag == PotionItemTag.Speed)
+                {
+                    UpdateSpeed(potionDef.Value);
+                }
+                else
+                {
+                    Debug.LogWarning($"Unknown potion tag={potionDef.Tag}");
+                    return;
+                }
+                _gameSession.Data.Inventory.Remove(item.Id, 1);
             }
+            
         }
         
         public void NextItem()
