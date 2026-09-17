@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AloneCrew.Model.Definitions;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace AloneCrew.Model.Data
             var itemDef = DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return false; 
             var item = GetItem(id);
-            if (item == null || !itemDef.Stackable)
+            if (item == null || !itemDef.HasTag(ItemTag.Stackable))
             {
                 item = new  InventoryItemData(id, value);
                 _inventory.Add(item);
@@ -68,6 +69,22 @@ namespace AloneCrew.Model.Data
                 if (itemData.Id == id) return itemData;
             }
             return null;
+        }
+
+        public InventoryItemData[] GetAll(params ItemTag[] tags)
+        {
+            var ret = new List<InventoryItemData>();
+            foreach (var inv in _inventory)
+            {
+                var itemDef = DefsFacade.I.Items.Get(inv.Id);
+                var isAllRequirements = tags.All(tag  => itemDef.HasTag(tag));
+                if (isAllRequirements)
+                {
+                    ret.Add(inv);
+                }
+                
+            }
+            return ret.ToArray();
         }
         
     }

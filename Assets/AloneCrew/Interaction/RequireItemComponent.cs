@@ -9,7 +9,6 @@ namespace AloneCrew.Interaction
     {
         [InventoryId] [SerializeField] private string _id;
         [SerializeField] private int _count;
-        [SerializeField] private bool _removeAfterUse;
         
         [SerializeField] private UnityEvent _onSuccess;
         [SerializeField] private UnityEvent _onFail;
@@ -17,13 +16,16 @@ namespace AloneCrew.Interaction
         public void Check()
         {
             var session = FindFirstObjectByType<GameSession>();
+            if (session == null)
+            {
+                _onFail?.Invoke();
+                Debug.LogWarning("No GameSession found");
+                return;
+            }
+            
             var numItems = session.Data.Inventory.Count(_id);
             if (numItems >= _count)
             {
-                if (_removeAfterUse)
-                {
-                    session.Data.Inventory.Remove(_id, _count);
-                }
                 _onSuccess?.Invoke();
             }
             else

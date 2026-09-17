@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using AloneCrew.Utils.Disposables;
+using UnityEngine;
 
 namespace AloneCrew.Model.Data.Properties
 {
@@ -9,6 +11,20 @@ namespace AloneCrew.Model.Data.Properties
         
         public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
         public event OnPropertyChanged OnChanged;
+        
+        public IDisposable Subscribe(OnPropertyChanged call)
+        {
+            OnChanged += call;
+            return new ActionDisposable(() => OnChanged -= call);
+        }
+
+        public IDisposable SubscribeAndInvoke(OnPropertyChanged call)
+        {
+            OnChanged += call;
+            var dispose = new ActionDisposable(() => OnChanged -= call);
+            call(_value, _value);
+            return dispose;
+        }
 
         public ObservabilityProperty(TPropertyType defaultValue)
         {
@@ -33,6 +49,11 @@ namespace AloneCrew.Model.Data.Properties
         protected void Init()
         {
             _value = Read(_defaultValue);
+        }
+        
+        protected void InvokeChangedEvent(TPropertyType newValue, TPropertyType oldValue)
+        {
+            OnChanged?.Invoke(newValue, oldValue);
         }
         
         protected abstract void Write(TPropertyType value);

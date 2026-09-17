@@ -1545,9 +1545,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Model.GameSession
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: BigHealthPotion
+        Value: 2
+      - Id: Sword
+        Value: 10
+      - Id: Coin
+        Value: 3
+      - Id: SpeedPotion
+        Value: 3
     Hp:
-      _value: 0
+      _value: 2
     IsArmed: 0
 --- !u!4 &328935331
 Transform:
@@ -1971,7 +1979,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.991114, y: 2.413528, z: -4.7685847}
+  m_LocalPosition: {x: -9.99111, y: 2.413528, z: -4.7685847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19298,50 +19306,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4323630714650231014, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: Priority
-      value: 124
-      objectReference: {fileID: 0}
-    - target: {fileID: 4323630714650231014, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_Volume
-      value: 0.171
+    - target: {fileID: 3503076550610999789, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+      propertyPath: _id
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 5050551680893441804, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 684245187}
-    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ReloadLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: AloneCrew.ReloadScene, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7338492709060500022, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7382393549035430057, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-      propertyPath: m_Actions
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: ef5236ffc4ef56142b0c0ac6a488b4e2, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UsePotion
+      objectReference: {fileID: 0}
     - target: {fileID: 9051125465453885845, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.65
@@ -19383,9 +19363,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8609434936798855292, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
-    - {fileID: 8137800579851518525, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}

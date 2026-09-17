@@ -14,10 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Model.Definitions.InventoryItemDef
   _items:
   - _id: Coin
-    _stackable: 1
+    _tags: 00000000
+    _icon: {fileID: 6582046967323461550, guid: e0ac4d6570ac7cf48b988c100345b95f, type: 3}
+    _value: 0
   - _id: Sword
-    _stackable: 1
+    _tags: 000000000200000001000000
+    _icon: {fileID: 21300000, guid: 503e32d8c5e75ad43918224c2ea9f486, type: 3}
+    _value: 0
   - _id: Key
-    _stackable: 1
-  - _id: HealthPotion
-    _stackable: 0
+    _tags: 0000000001000000
+    _icon: {fileID: 21300000, guid: e023fabefa0d8d7479c9c549fe2ff2d3, type: 3}
+    _value: 0
+  - _id: BigHealthPotion
+    _tags: 0000000001000000
+    _icon: {fileID: 3714227102187029162, guid: 23a0f80ec39513140a2f2f2faf5ff4e9, type: 3}
+    _value: 5
+  - _id: PearlProjectile
+    _tags: 000000000100000002000000
+    _icon: {fileID: 21300000, guid: afdaad818584e8a4f82351ced22d4c94, type: 3}
+    _value: 0
+  - _id: LowHealthPotion
+    _tags: 0000000001000000
+    _icon: {fileID: -3065595510956808684, guid: 23a0f80ec39513140a2f2f2faf5ff4e9, type: 3}
+    _value: 2
+  - _id: SpeedPotion
+    _tags: 0000000001000000
+    _icon: {fileID: 2011574832808370117, guid: 23a0f80ec39513140a2f2f2faf5ff4e9, type: 3}
+    _value: 7

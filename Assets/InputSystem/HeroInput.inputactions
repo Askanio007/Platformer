@@ -61,9 +61,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Heal",
+                    "name": "NextItem",
                     "type": "Button",
                     "id": "391ee099-f42f-4ccd-8936-57e3a35243bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UsePotion",
+                    "type": "Button",
+                    "id": "7feeb163-8c69-4c16-996b-ca9339fc42e3",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -184,11 +193,22 @@
                 {
                     "name": "",
                     "id": "e1702497-8e71-4858-bd0a-820ab04f776a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe12f2e1-c43a-41a4-aa03-69dbe8c5916c",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Heal",
+                    "action": "UsePotion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

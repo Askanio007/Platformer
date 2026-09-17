@@ -174,9 +174,14 @@ namespace AloneCrew
             _animator.SetTrigger(throwKey);
         }
         
-        public void DoThrow()
+        public virtual void DoThrow()
         {
             _particles.Spawn("sword_throw");
+        }
+
+        public void UpdateSpeed(int speed)
+        {
+            _speed = speed;
         }
         
     }
