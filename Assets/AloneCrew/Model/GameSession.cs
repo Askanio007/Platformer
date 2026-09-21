@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AloneCrew.Model.Data;
 using AloneCrew.Utils.Disposables;
 using UnityEngine;
@@ -26,6 +27,7 @@ namespace AloneCrew.Model
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventoryModel { get;  private set; }
         public string QuickInvSelectedItemId => QuickInventoryModel.SelectedItem.Id;
+        private List<string> _checkpoints = new();
 
         private void Awake()
         {
@@ -41,6 +43,19 @@ namespace AloneCrew.Model
                 _initData = Data.Clone();
                 InitModels();
                 DontDestroyOnLoad(gameObject);
+            }
+        }
+
+        public bool IsChecked(string checkpointId)
+        {
+            return _checkpoints.Contains(checkpointId);
+        }
+
+        public void AddCheckpoint(string checkpointId)
+        {
+            if (!_checkpoints.Contains(checkpointId))
+            {
+                _checkpoints.Add(checkpointId);
             }
         }
 
