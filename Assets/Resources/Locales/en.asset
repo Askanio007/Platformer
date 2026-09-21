@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed4e5a67a014ae4b74aad6cf7234307, type: 3}
+  m_Name: en
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Model.Definitions.Localization.LocaleDef
+  _mode: 1
+  _tsvFile: {fileID: 4900000, guid: b20ced391bf415b458075d0bbbe67191, type: 3}
+  _url: 
+  _locales:
+  - _key: menu_title
+    _value: "menu\r"
+  - _key: button_start
+    _value: "start\r"
+  - _key: button_option
+    _value: "options\r"
+  - _key: button_exit
+    _value: "exit\r"
+  - _key: button_language
+    _value: "language\r"
+  - _key: label_music
+    _value: "music\r"
+  - _key: label_sfx
+    _value: "sfx\r"
+  - _key: selected_language
+    _value: Selected language is {0}

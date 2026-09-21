@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AloneCrew.Model;
 using AloneCrew.Model.Data;
+using AloneCrew.UI.Widgets;
 using AloneCrew.Utils.Disposables;
 using UnityEngine;
 
@@ -16,9 +17,12 @@ namespace AloneCrew.UI.Hud.QuickInventory
         private List<InventoryItemWidget> _createdItems = new List<InventoryItemWidget>();
         
         private readonly CompositeDisposable _trash = new CompositeDisposable();
+        
+        private DataGroup<InventoryItemData, InventoryItemWidget> _dataGroup;
 
         public void Start()
         {
+            _dataGroup = new DataGroup<InventoryItemData, InventoryItemWidget>(_prefab, _container);
             _session = FindFirstObjectByType<GameSession>();
             _trash.Retain(_session.QuickInventoryModel.Subscribe(Rebuild));
             Rebuild();
@@ -27,26 +31,7 @@ namespace AloneCrew.UI.Hud.QuickInventory
         private void Rebuild()
         {
             var inventory = _session.QuickInventoryModel.Inventory;
-            
-            //create items
-            for (var i = _createdItems.Count; i < inventory.Length; i++)
-            {
-                var item = Instantiate(_prefab, _container);
-                _createdItems.Add(item);
-            }
-            
-            //update data
-            for (int i = 0; i < inventory.Length; i++)
-            {
-                _createdItems[i].SetData(inventory[i], i);
-                _createdItems[i].gameObject.SetActive(true);
-            }
-            
-            //hide unused
-            for (int i = inventory.Length; i < _createdItems.Count; i++)
-            {
-                _createdItems[i].gameObject.SetActive(false);
-            }
+            _dataGroup.SetData(inventory);
         }
 
         public void OnDestroy()

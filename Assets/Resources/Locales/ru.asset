@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed4e5a67a014ae4b74aad6cf7234307, type: 3}
+  m_Name: ru
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Model.Definitions.Localization.LocaleDef
+  _mode: 1
+  _tsvFile: {fileID: 4900000, guid: d78fbd42791629144af6db7320a182fe, type: 3}
+  _url: 
+  _locales:
+  - _key: menu_title
+    _value: "\u043C\u0435\u043D\u044E\r"
+  - _key: button_start
+    _value: "\u0441\u0442\u0430\u0440\u0442\r"
+  - _key: button_option
+    _value: "\u043E\u043F\u0446\u0438\u0438\r"
+  - _key: button_exit
+    _value: "\u0432\u044B\u0445\u043E\u0434\r"
+  - _key: button_language
+    _value: "\u044F\u0437\u044B\u043A\r"
+  - _key: label_music
+    _value: "\u043C\u0443\u0437\u044B\u043A\u0430\r"
+  - _key: label_sfx
+    _value: "\u0437\u0432\u0443\u043A\r"
+  - _key: selected_language
+    _value: "\u0412\u044B\u0431\u0440\u0430\u043D\u043D\u044B\u0439 \u044F\u0437\u044B\u043A
+      {0}"

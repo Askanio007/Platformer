@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AloneCrew.Model.Definitions.Localization;
+using UnityEngine;
 
 namespace AloneCrew.UI
 {

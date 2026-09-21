@@ -2,6 +2,7 @@
 using AloneCrew.Model;
 using AloneCrew.Model.Data;
 using AloneCrew.Model.Definitions;
+using AloneCrew.UI.Widgets;
 using AloneCrew.Utils.Disposables;
 using TMPro;
 using UnityEngine;
@@ -9,7 +10,7 @@ using UnityEngine.UI;
 
 namespace AloneCrew.UI.Hud.QuickInventory
 {
-    public class InventoryItemWidget : MonoBehaviour
+    public class InventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData>
     {
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _selction;
