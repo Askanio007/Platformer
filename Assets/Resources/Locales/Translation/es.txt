@@ -1,0 +1,8 @@
+menu_title	menú
+button_start	comenzar
+button_option	opciones
+button_exit	salida
+button_language	langúag
+label_music	músic
+label_sfx	sfx
+selected_language	Selected language is {0}
