@@ -10,7 +10,17 @@ namespace AloneCrew.UI.MainMenu
         private Action _closeAction;
         public void OnShowSetting()
         {
-            var window = Resources.Load<GameObject>("UI/SettingWindow");
+            Show("UI/SettingWindow");
+        }
+        
+        public void OnShowLanguage()
+        {
+            Show("UI/LanguageWindow");
+        }
+        
+        private void Show(string path)
+        {
+            var window = Resources.Load<GameObject>(path);
             var canvas = FindFirstObjectByType<Canvas>();
             Instantiate(window, canvas.transform);
         }

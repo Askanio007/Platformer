@@ -1,0 +1,8 @@
+menu_title	меню
+button_start	старт
+button_option	опции
+button_exit	выход
+button_language	язык
+label_music	музыка
+label_sfx	звук
+selected_language	Выбранный язык {0}

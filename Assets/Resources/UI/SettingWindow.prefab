@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 523216730451257678}
   - component: {fileID: 7129380213340321002}
   - component: {fileID: 9024311776015700367}
+  - component: {fileID: 3384500017486641778}
   m_Layer: 5
   m_Name: LabelMusic
   m_TagString: Untagged
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music
+  m_text: label_music
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -264,6 +265,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3384500017486641778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080420529102877193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a330b90188e42ba9a554d15519c93f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.UI.Localization.LocalizedText
+  _key: label_music
+  _capitalize: 1
 --- !u!1 &1204841264233021353
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +290,7 @@ GameObject:
   - component: {fileID: 1133528955508581011}
   - component: {fileID: 2052509303182947399}
   - component: {fileID: 9070148653797794039}
+  - component: {fileID: 1690294819730644279}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -329,7 +345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Options
+  m_text: button_option
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -401,6 +417,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1690294819730644279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204841264233021353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a330b90188e42ba9a554d15519c93f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.UI.Localization.LocalizedText
+  _key: button_option
+  _capitalize: 1
 --- !u!1 &1285668280732416317
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +567,7 @@ GameObject:
   - component: {fileID: 4498035556337222730}
   - component: {fileID: 36546734229069070}
   - component: {fileID: 8647767055947890127}
+  - component: {fileID: 1577763336823187231}
   m_Layer: 5
   m_Name: LabelMusic
   m_TagString: Untagged
@@ -591,7 +622,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sfx
+  m_text: label_sfx
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -663,6 +694,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1577763336823187231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386027500299524225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a330b90188e42ba9a554d15519c93f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.UI.Localization.LocalizedText
+  _key: label_sfx
+  _capitalize: 1
 --- !u!1 &3452942426000502566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,6 +1609,7 @@ GameObject:
   - component: {fileID: 4225066441816906629}
   - component: {fileID: 1434844826227630942}
   - component: {fileID: 5047966860302514154}
+  - component: {fileID: 6314114796650489141}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -1618,7 +1664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BACK
+  m_text: button_exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1690,6 +1736,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6314114796650489141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7186075282066311454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a330b90188e42ba9a554d15519c93f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.UI.Localization.LocalizedText
+  _key: button_exit
+  _capitalize: 1
 --- !u!1 &7299931277060640565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1761,7 @@ GameObject:
   - component: {fileID: 8361586393611932361}
   - component: {fileID: 7792174857445566505}
   - component: {fileID: 2593260219387129346}
+  - component: {fileID: 2503108584961861024}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -1755,7 +1816,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BACK
+  m_text: button_exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1827,6 +1888,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2503108584961861024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299931277060640565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a330b90188e42ba9a554d15519c93f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.UI.Localization.LocalizedText
+  _key: button_exit
+  _capitalize: 1
 --- !u!1 &8067998256655545126
 GameObject:
   m_ObjectHideFlags: 0

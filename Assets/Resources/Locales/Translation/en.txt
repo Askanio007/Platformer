@@ -1,0 +1,8 @@
+menu_title	menu
+button_start	start
+button_option	options
+button_exit	exit
+button_language	language
+label_music	music
+label_sfx	sfx
+selected_language	Selected language is {0}
