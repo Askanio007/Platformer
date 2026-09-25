@@ -12,26 +12,28 @@ namespace AloneCrew.Components.LevelManagement
         [SerializeField] private string _id;
         [SerializeField] private UnityEvent _setChecked;
         [SerializeField] private UnityEvent _setUnchecked;
-        private SpawnComponent _spawnComponent;
+        [SerializeField] private SpawnComponent _spawnComponent;
         private GameSession _gameSession;
+        
+        public string Id => _id;
 
         public void Start()
         {
-            _spawnComponent = GetComponent<SpawnComponent>();
             _gameSession = FindFirstObjectByType<GameSession>();
             if (_gameSession.IsChecked(_id))
             {
-                _setChecked.Invoke();
+                _setChecked?.Invoke();
             }
             else
             {
-                _setUnchecked.Invoke();
+                _setUnchecked?.Invoke();
             }
         }
 
         public void Check()
         {
             _gameSession.AddCheckpoint(_id);
+            _setChecked?.Invoke();
         }
 
         public void SpawnHero()

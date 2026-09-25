@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using AloneCrew.Components.LevelManagement;
 using AloneCrew.Model.Data;
 using AloneCrew.Utils.Disposables;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +13,7 @@ namespace AloneCrew.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
+        [SerializeField] private string _defaultCheckpointId;
         public PlayerData Data => _data;
         public int Hp
         {
@@ -31,11 +35,11 @@ namespace AloneCrew.Model
 
         private void Awake()
         {
-            LoadHud();
             var existSession = GetSessionExist();
             if (existSession != null)
             {
                 existSession._initData = existSession.Data.Clone();
+                existSession.StartSession(_defaultCheckpointId);
                 DestroyImmediate(gameObject);
             }
             else
@@ -43,6 +47,29 @@ namespace AloneCrew.Model
                 _initData = Data.Clone();
                 InitModels();
                 DontDestroyOnLoad(gameObject);
+                StartSession(_defaultCheckpointId);
+            }
+        }
+
+        private void StartSession(string defaultCheckpointId)
+        {
+            AddCheckpoint(defaultCheckpointId);
+            
+            LoadHud();
+            SpawnHero();
+        }
+
+        private void SpawnHero()
+        {
+            var checkpoints = FindObjectsByType<CheckPointComponent>(FindObjectsSortMode.None);
+            var lastChekPoint = _checkpoints.Last();
+            foreach (var checkpoint in checkpoints)
+            {
+                if (checkpoint.Id == lastChekPoint)
+                {
+                    checkpoint.SpawnHero();
+                    break;
+                }
             }
         }
 
