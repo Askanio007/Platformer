@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,19 +11,12 @@ namespace AloneCrew.UI.MainMenu
         private Action _closeAction;
         public void OnShowSetting()
         {
-            Show("UI/SettingWindow");
+            WindowUtils.CreateWindow("UI/SettingWindow");
         }
         
         public void OnShowLanguage()
         {
-            Show("UI/LanguageWindow");
-        }
-        
-        private void Show(string path)
-        {
-            var window = Resources.Load<GameObject>(path);
-            var canvas = FindFirstObjectByType<Canvas>();
-            Instantiate(window, canvas.transform);
+            WindowUtils.CreateWindow("UI/LanguageWindow");
         }
 
         public void OnStartGame()

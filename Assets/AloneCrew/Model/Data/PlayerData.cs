@@ -9,6 +9,7 @@ namespace AloneCrew.Model.Data
     {
         [SerializeField] public InventoryData _inventory;
         public IntPersistentProperty Hp = new IntPersistentProperty(6);
+        public PerksData  Perks = new PerksData();
         public bool IsArmed;
         public InventoryData Inventory => _inventory;
         public PlayerData Clone()

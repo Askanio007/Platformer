@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AloneCrew.Model.Definitions;
+using AloneCrew.Model.Definitions.Repositories;
 using UnityEngine;
 
 namespace AloneCrew.Model.Data
@@ -86,6 +87,25 @@ namespace AloneCrew.Model.Data
             }
             return ret.ToArray();
         }
-        
+
+        public bool IsEnough(params ItemWithCount[] items)
+        {
+            var joined = new Dictionary<string, int>();
+            foreach (var item in items)
+            {
+                if (joined.ContainsKey(item.ItemId))
+                    joined[item.ItemId] += item.Count;
+                else
+                    joined.Add(item.ItemId, item.Count);
+            }
+            
+            foreach (var kvp in joined)
+            {
+                var count = Count(kvp.Key);
+                if (count < kvp.Value) return false;
+            }
+            
+            return true;
+        }
     }
 }

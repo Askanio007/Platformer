@@ -168,7 +168,7 @@ namespace AloneCrew
             if (!isFalling) return yVelocity;
             
             yVelocity = base.CalculateJumpVelocity(yVelocity);
-            if (!_isGrounded && _allowDoubleJump)
+            if (!_isGrounded && _allowDoubleJump && _gameSession.PerksModel.IsDoubleJumpSupported)
             {
                 yVelocity = _jumpSpeed;
                 _allowDoubleJump = false;

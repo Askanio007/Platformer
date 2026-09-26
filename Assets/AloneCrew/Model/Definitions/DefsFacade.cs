@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AloneCrew.Model.Definitions.Repositories;
+using UnityEngine;
 
 namespace AloneCrew.Model.Definitions
 {
@@ -8,12 +9,14 @@ namespace AloneCrew.Model.Definitions
         [SerializeField] private InventoryItemDef _items;
         [SerializeField] private ThrowableItemsDef _throwableItems;
         [SerializeField] private PotionItemsDef _potionItems;
-
         [SerializeField] private PlayerDef _player;
+        [SerializeField] private PerkRepository _perks;
         
         private static DefsFacade _instance;
         public static DefsFacade I => _instance == null ? LoadDefs() : _instance;
-        
+
+        public PerkRepository Perks => _perks;
+
         public InventoryItemDef Items => _items;
         public ThrowableItemsDef ThrowableItems => _throwableItems;
         public PotionItemsDef PotionItems => _potionItems;

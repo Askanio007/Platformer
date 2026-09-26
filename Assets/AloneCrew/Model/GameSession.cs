@@ -30,6 +30,7 @@ namespace AloneCrew.Model
         private PlayerData _initData;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventoryModel { get;  private set; }
+        public PerksModel PerksModel {get; private set; }
         public string QuickInvSelectedItemId => QuickInventoryModel.SelectedItem.Id;
         private List<string> _checkpoints = new();
 
@@ -95,6 +96,9 @@ namespace AloneCrew.Model
         {
             QuickInventoryModel = new QuickInventoryModel(_data);
             _trash.Retain(QuickInventoryModel);
+            
+            PerksModel = new PerksModel(_data);
+            _trash.Retain(PerksModel);
         }
 
         public void Reset()
