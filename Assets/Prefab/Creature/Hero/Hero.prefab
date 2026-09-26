@@ -5371,10 +5371,8 @@ MonoBehaviour:
   _attackRange: {fileID: 122014118064581025}
   _particles: {fileID: 52207976433376050}
   _longFly: -15
-  _animator: {fileID: 2715278387837233822}
   _vision: {fileID: 9051125465453885845}
   _isGrounded: 0
-  HealthCanvas: {fileID: 0}
   _interactLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -5538,7 +5536,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6756376545143834761}
         m_TargetAssemblyTypeName: AloneCrew.HeroInputReader, Assembly-CSharp
-        m_MethodName: OnHeal
+        m_MethodName: UsePotion
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5760,70 +5758,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1bf1879563340599bd424826a407879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Interaction.RequireItemComponent
-  _items:
-  - _id: BigHealthPotion
-    _count: 1
-    _removeAfterUse: 1
-    _onSuccess:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7338492709060500022}
-          m_TargetAssemblyTypeName: AloneCrew.Components.HealthComponent, Assembly-CSharp
-          m_MethodName: ApplyDamage
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    _onFail:
-      m_PersistentCalls:
-        m_Calls: []
-  - _id: LowHealthPotion
-    _count: 1
-    _removeAfterUse: 1
-    _onSuccess:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7338492709060500022}
-          m_TargetAssemblyTypeName: AloneCrew.Components.HealthComponent, Assembly-CSharp
-          m_MethodName: ApplyDamage
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    _onFail:
-      m_PersistentCalls:
-        m_Calls: []
-  - _id: SpeedPotion
-    _count: 1
-    _removeAfterUse: 1
-    _onSuccess:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2181923693671448582}
-          m_TargetAssemblyTypeName: AloneCrew.Hero, Assembly-CSharp
-          m_MethodName: UpdateSpeed
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    _onFail:
-      m_PersistentCalls:
-        m_Calls: []
+  _id: Coin
+  _count: 0
+  _onSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFail:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6566735460576038610
 MonoBehaviour:
   m_ObjectHideFlags: 0

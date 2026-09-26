@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AloneCrew.Components.LevelManagement;
 using AloneCrew.Model.Data;
 using AloneCrew.Utils.Disposables;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +13,7 @@ namespace AloneCrew.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
+        [SerializeField] private string _defaultCheckpointId;
         public PlayerData Data => _data;
         public int Hp
         {
@@ -26,14 +31,15 @@ namespace AloneCrew.Model
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventoryModel { get;  private set; }
         public string QuickInvSelectedItemId => QuickInventoryModel.SelectedItem.Id;
+        private List<string> _checkpoints = new();
 
         private void Awake()
         {
-            LoadHud();
             var existSession = GetSessionExist();
             if (existSession != null)
             {
                 existSession._initData = existSession.Data.Clone();
+                existSession.StartSession(_defaultCheckpointId);
                 DestroyImmediate(gameObject);
             }
             else
@@ -41,6 +47,42 @@ namespace AloneCrew.Model
                 _initData = Data.Clone();
                 InitModels();
                 DontDestroyOnLoad(gameObject);
+                StartSession(_defaultCheckpointId);
+            }
+        }
+
+        private void StartSession(string defaultCheckpointId)
+        {
+            AddCheckpoint(defaultCheckpointId);
+            
+            LoadHud();
+            SpawnHero();
+        }
+
+        private void SpawnHero()
+        {
+            var checkpoints = FindObjectsByType<CheckPointComponent>(FindObjectsSortMode.None);
+            var lastChekPoint = _checkpoints.Last();
+            foreach (var checkpoint in checkpoints)
+            {
+                if (checkpoint.Id == lastChekPoint)
+                {
+                    checkpoint.SpawnHero();
+                    break;
+                }
+            }
+        }
+
+        public bool IsChecked(string checkpointId)
+        {
+            return _checkpoints.Contains(checkpointId);
+        }
+
+        public void AddCheckpoint(string checkpointId)
+        {
+            if (!_checkpoints.Contains(checkpointId))
+            {
+                _checkpoints.Add(checkpointId);
             }
         }
 
