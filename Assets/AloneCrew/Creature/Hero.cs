@@ -33,6 +33,20 @@ namespace AloneCrew
             _healthComponent = GetComponent<HealthComponent>();
             InitSession();
             _gameSession.SubscribeOnInventoryChanged(OnInventoryChanged);
+            _gameSession.StatsModel.OnUpgrade += OnHeroUpgraded;
+        }
+
+        private void OnHeroUpgraded(StatId statId)
+        {
+            switch (statId)
+            {
+                case  StatId.Hp:
+                    var health = (int)_gameSession.StatsModel.GetValue(statId);
+                    _gameSession.Hp = health; 
+                    _healthComponent.SetHealth(health);
+                    break;
+            }
+            
         }
 
         private void OnDestroy()
@@ -95,7 +109,7 @@ namespace AloneCrew
         {
             _gameSession = FindFirstObjectByType<GameSession>();
             AddInInventory("Sword", 5);
-            GetComponent<HealthComponent>().SetHealth(_gameSession.Hp);
+            _healthComponent.SetHealth(_gameSession.Hp);
             UpdateAnimator();
         }
 
