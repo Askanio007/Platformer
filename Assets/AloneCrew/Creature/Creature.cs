@@ -1,8 +1,5 @@
 ﻿using AloneCrew.Components;
-using AloneCrew.Utils;
 using UnityEngine;
-using UnityEditor;
-using UnityEngine.UI;
 
 namespace AloneCrew
 {
@@ -11,7 +8,7 @@ namespace AloneCrew
         [SerializeField] private float _speed;
         [SerializeField] protected float _jumpSpeed;
         [SerializeField] private float _damageVelocity;
-        [SerializeField] private int _attack;
+        [SerializeField] protected int _attack;
 
         [Header("Params")][SerializeField] private bool _invertScale;
         [SerializeField] private LayerCheck _groundCheck;
@@ -158,7 +155,7 @@ namespace AloneCrew
                 var hp = go.GetComponent<HealthComponent>();
                 if (hp != null)
                 {
-                    hp.ApplyDamage(_attack);
+                    hp.ApplyDamage(GetAttack());
                 }
                 
             }
@@ -182,6 +179,11 @@ namespace AloneCrew
         public void UpdateSpeed(float speed)
         {
             _speed = speed;
+        }
+
+        public virtual int GetAttack()
+        {
+            return _attack;
         }
         
     }

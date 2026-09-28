@@ -152,7 +152,19 @@ namespace AloneCrew.Model
 
         public float GetRangeDamage()
         {
-            return StatsModel.GetValue(StatId.RangeDamage);
+            var dmg = StatsModel.GetValue(StatId.RangeDamage);
+            return TryGetCritAttack(dmg);
+        }
+
+        public float TryGetCritAttack(float damage)
+        {
+            return IsCritDamage() ? damage * 2 : damage;
+        }
+        
+        private bool IsCritDamage()
+        {
+            var rnd = Random.Range(1, 100);
+            return StatsModel.GetValue(StatId.Crit) >= rnd;
         }
         
         private void OnDestroy()

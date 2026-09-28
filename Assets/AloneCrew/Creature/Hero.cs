@@ -271,7 +271,11 @@ namespace AloneCrew
             
             
         }
-        
+
+        public override int GetAttack()
+        {
+            return (int) _gameSession.TryGetCritAttack(base.GetAttack());
+        }
     }
     
     
