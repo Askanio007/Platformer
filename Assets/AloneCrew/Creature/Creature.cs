@@ -179,7 +179,7 @@ namespace AloneCrew
             _particles.Spawn("sword_throw");
         }
 
-        public void UpdateSpeed(int speed)
+        public void UpdateSpeed(float speed)
         {
             _speed = speed;
         }

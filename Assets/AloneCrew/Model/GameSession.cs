@@ -149,6 +149,11 @@ namespace AloneCrew.Model
         {
             Data.Inventory.onInventoryChanged -= method;
         }
+
+        public float GetRangeDamage()
+        {
+            return StatsModel.GetValue(StatId.RangeDamage);
+        }
         
         private void OnDestroy()
         {

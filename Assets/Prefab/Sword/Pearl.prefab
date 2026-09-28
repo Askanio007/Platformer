@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8740745335611976409}
   - component: {fileID: 3313419068060375023}
   - component: {fileID: 6412189386000875560}
-  - component: {fileID: 5810484699973140745}
+  - component: {fileID: 4057117922021744439}
   m_Layer: 0
   m_Name: Pearl
   m_TagString: Untagged
@@ -263,8 +263,9 @@ MonoBehaviour:
   _eventCollider:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5810484699973140745}
-        m_TargetAssemblyTypeName: AloneCrew.Components.HealthChangeComponent, Assembly-CSharp
+      - m_Target: {fileID: 4057117922021744439}
+        m_TargetAssemblyTypeName: AloneCrew.Components.HealthChangeByPlayerComponent,
+          Assembly-CSharp
         m_MethodName: Modify
         m_Mode: 0
         m_Arguments:
@@ -289,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.SpawnComponent
   _target: {fileID: 7582663158619315553}
   _prefab: {fileID: 7796310160666003223, guid: 3cf253d16a197fe45bdf59da30b3afa1, type: 3}
---- !u!114 &5810484699973140745
+--- !u!114 &4057117922021744439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,10 +299,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2764175815312048368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1a4417062e66245a8988f81990ee4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 40e3aea2bb06411e9ef856ca700a7a14, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.HealthChangeComponent
-  _changeValue: 1
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.HealthChangeByPlayerComponent
 --- !u!1 &7009239536102187439
 GameObject:
   m_ObjectHideFlags: 0

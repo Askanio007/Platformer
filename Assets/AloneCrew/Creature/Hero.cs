@@ -1,7 +1,6 @@
 using System.Collections;
 using AloneCrew.Components;
 using AloneCrew.Model;
-using AloneCrew.Model.Data;
 using AloneCrew.Model.Definitions;
 using AloneCrew.Utils;
 using UnityEditor.Animations;
@@ -32,8 +31,17 @@ namespace AloneCrew
             _sounds = GetComponent<PlaySoundComponent>();
             _healthComponent = GetComponent<HealthComponent>();
             InitSession();
+        }
+        
+        private void InitSession()
+        {
+            _gameSession = FindFirstObjectByType<GameSession>();
+            AddInInventory("Sword", 5);
+            _healthComponent.SetHealth(_gameSession.Hp);
+            UpdateAnimator();
             _gameSession.SubscribeOnInventoryChanged(OnInventoryChanged);
             _gameSession.StatsModel.OnUpgrade += OnHeroUpgraded;
+            OnHeroUpgraded(StatId.Speed);
         }
 
         private void OnHeroUpgraded(StatId statId)
@@ -44,6 +52,9 @@ namespace AloneCrew
                     var health = (int)_gameSession.StatsModel.GetValue(statId);
                     _gameSession.Hp = health; 
                     _healthComponent.SetHealth(health);
+                    break;
+                case StatId.Speed:
+                    UpdateSpeed(_gameSession.StatsModel.GetValue(statId)); 
                     break;
             }
             
@@ -105,13 +116,7 @@ namespace AloneCrew
             UpdateAnimator();
         }
 
-        private void InitSession()
-        {
-            _gameSession = FindFirstObjectByType<GameSession>();
-            AddInInventory("Sword", 5);
-            _healthComponent.SetHealth(_gameSession.Hp);
-            UpdateAnimator();
-        }
+        
 
         private void UpdateAnimator()
         {
