@@ -43,10 +43,11 @@ namespace AloneCrew.UI.Windows.PlayerStats
             _icon.sprite = _data.Icon;
             _name.text = LocalizationManager.I.Localize(_data.Name);
             var sessionStatsModel = _session.StatsModel;
-            _currentValue.text = sessionStatsModel.GetValue(_data.ID).ToString(CultureInfo.InvariantCulture);
+            var currentValue =  sessionStatsModel.GetValue(_data.ID);
+            _currentValue.text = currentValue.ToString(CultureInfo.InvariantCulture);
             var currentLevel = sessionStatsModel.GetLevel(_data.ID);
             var nextLevel = currentLevel + 1;
-            var increaseValue = sessionStatsModel.GetCurrentValue(_data.ID, nextLevel);
+            var increaseValue = sessionStatsModel.GetCurrentValue(_data.ID, nextLevel) - currentValue;
             _increaseValue.text = $"+ {increaseValue}";
             _increaseValue.gameObject.SetActive(increaseValue > 0);
             

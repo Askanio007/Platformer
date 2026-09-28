@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace AloneCrew.Model.Data
 {
+    [Serializable]
     public class LevelData
     {
         [SerializeField] public List<LevelProgress> _progress;

@@ -37,6 +37,7 @@ namespace AloneCrew.Model.Definitions
     {
         Hp,
         Speed,
-        RangeDamage
+        RangeDamage,
+        Crit
     }
 }

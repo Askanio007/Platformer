@@ -1311,7 +1311,7 @@ MonoBehaviour:
       - Id: Sword
         Value: 10
       - Id: Coin
-        Value: 3
+        Value: 3000
       - Id: SpeedPotion
         Value: 3
     Hp:
@@ -1320,6 +1320,8 @@ MonoBehaviour:
       _used:
         _value: 
       _unlocked: []
+    Levels:
+      _progress: []
     IsArmed: 0
   _defaultCheckpointId: level1-checkpoint1
 --- !u!4 &328935331
@@ -8491,7 +8493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72cf275f02dc4b9d8fc7dcf2a8d90fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.ShowWindowComponent
-  _path: UI/ManagePerksWindow
+  _path: UI/PlayerStatsWindow
 --- !u!114 &1115869892
 MonoBehaviour:
   m_ObjectHideFlags: 0

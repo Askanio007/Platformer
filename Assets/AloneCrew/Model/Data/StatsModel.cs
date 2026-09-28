@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using AloneCrew.Model.Data.Properties;
 using AloneCrew.Model.Definitions;
 using AloneCrew.Utils.Disposables;
@@ -40,7 +41,6 @@ namespace AloneCrew.Model.Data
 
         public float GetCurrentValue(StatId statId, int level = -1)
         {
-            if (level == -1) level = GetLevel(statId);
             return GetCurrentLevelDef(statId, level).Value;
         }
         
@@ -53,7 +53,7 @@ namespace AloneCrew.Model.Data
         {
             if (level == -1) level = GetLevel(statId);
             var def = DefsFacade.I.Player.GetStat(statId);
-            return def.Levels[level];
+            return level >= def.Levels.Length ? default : def.Levels[level];
         }
         
         public StatLevel GetLevelDef(StatId statId)

@@ -28,8 +28,9 @@ namespace AloneCrew.UI.Windows.PlayerStats
             
             _statsGroup = new DataGroup<StatDef, StatWidget>(_prefab, _statsContainer);
             
-            _session.StatsModel.InterfaceSelectedStat.Value = DefsFacade.I.Player.Stats[0].ID;
             _session = FindObjectOfType<GameSession>();
+            var stats = DefsFacade.I.Player.Stats;
+            _session.StatsModel.InterfaceSelectedStat.Value = stats[0].ID;
             _trash.Retain(_session.StatsModel.Subscribe(OnStatChanged));
             _trash.Retain(_upgradeButton.onClick.Subscribe(OnUpgrade));
                 
@@ -48,7 +49,7 @@ namespace AloneCrew.UI.Windows.PlayerStats
             _statsGroup.SetData(stats);
             
             var selected = _session.StatsModel.InterfaceSelectedStat.Value;
-            var nextLevel = (int) _session.StatsModel.GetCurrentValue(selected) + 1;
+            var nextLevel = _session.StatsModel.GetLevel(selected) + 1;
             var def = _session.StatsModel.GetCurrentLevelDef(selected, nextLevel);
             _price.SetData(def.Price);
 
