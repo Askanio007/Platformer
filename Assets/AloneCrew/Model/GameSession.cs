@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AloneCrew.Components.LevelManagement;
 using AloneCrew.Model.Data;
+using AloneCrew.Model.Definitions;
 using AloneCrew.Utils.Disposables;
-using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,6 +30,7 @@ namespace AloneCrew.Model
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventoryModel { get;  private set; }
         public PerksModel PerksModel {get; private set; }
+        public StatsModel StatsModel {get; private set; }
         public string QuickInvSelectedItemId => QuickInventoryModel.SelectedItem.Id;
         private List<string> _checkpoints = new();
 
@@ -99,6 +99,11 @@ namespace AloneCrew.Model
             
             PerksModel = new PerksModel(_data);
             _trash.Retain(PerksModel);
+            
+            StatsModel = new StatsModel(_data);
+            _trash.Retain(StatsModel);
+
+            _data.Hp.Value = (int) StatsModel.GetValue(StatId.Hp);
         }
 
         public void Reset()
@@ -143,6 +148,23 @@ namespace AloneCrew.Model
         public void UnsubscribeOnInventoryChanged(InventoryData.OnInventoryChanged method)
         {
             Data.Inventory.onInventoryChanged -= method;
+        }
+
+        public float GetRangeDamage()
+        {
+            var dmg = StatsModel.GetValue(StatId.RangeDamage);
+            return TryGetCritAttack(dmg);
+        }
+
+        public float TryGetCritAttack(float damage)
+        {
+            return IsCritDamage() ? damage * 2 : damage;
+        }
+        
+        private bool IsCritDamage()
+        {
+            var rnd = Random.Range(1, 100);
+            return StatsModel.GetValue(StatId.Crit) >= rnd;
         }
         
         private void OnDestroy()

@@ -1,6 +1,4 @@
-﻿using System;
-using AloneCrew.Model;
-using AloneCrew.Model.Data.Properties;
+﻿using AloneCrew.Model;
 using AloneCrew.Model.Definitions;
 using AloneCrew.UI.Widgets;
 using UnityEngine;
@@ -22,8 +20,8 @@ namespace AloneCrew.UI.Hud
 
         private void OnHealthChanged(int newValue, int oldValue)
         {
-            var maxHealth = DefsFacade.I.Player.MaxHealth;
-            var val = (float) newValue/maxHealth; 
+            var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
+            var val = newValue/maxHealth; 
             _healthBar.SetProgress(val);
             
         }

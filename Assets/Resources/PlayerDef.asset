@@ -14,3 +14,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Model.Definitions.PlayerDef
   _inventorySize: 10
   _maxHealth: 10
+  _stats:
+  - _id: 0
+    _name: health
+    _icon: {fileID: -1977886838617173610, guid: cde647b6c68a01649a6f231e3b999539, type: 3}
+    _levels:
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 20
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 40
+      _price:
+        _itemId: Coin
+        _count: 30
+  - _id: 1
+    _name: speed
+    _icon: {fileID: 8311942305731051576, guid: 49b9e028f464824438eb01d4aac948cf, type: 3}
+    _levels:
+    - _value: 5
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 6
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 7
+      _price:
+        _itemId: Coin
+        _count: 20
+    - _value: 8
+      _price:
+        _itemId: Coin
+        _count: 30
+  - _id: 2
+    _name: range
+    _icon: {fileID: -8219296011201618761, guid: 2232113430dd22e4da6a2026fd8a7c99, type: 3}
+    _levels:
+    - _value: 1
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 2
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 3
+      _price:
+        _itemId: Coin
+        _count: 20
+    - _value: 4
+      _price:
+        _itemId: Coin
+        _count: 30
+  - _id: 3
+    _name: crit
+    _icon: {fileID: 6832507989402793914, guid: fc1232859f6d2d64391c50e1c64ca2d2, type: 3}
+    _levels:
+    - _value: 0
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 15
+      _price:
+        _itemId: Coin
+        _count: 20
+    - _value: 20
+      _price:
+        _itemId: Coin
+        _count: 30

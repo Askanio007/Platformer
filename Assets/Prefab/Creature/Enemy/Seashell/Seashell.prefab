@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8456841765749029381}
   - component: {fileID: 6963752108284262759}
   - component: {fileID: 7226178169882760313}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Seashell
   m_TagString: Enemy
   m_Icon: {fileID: 0}
