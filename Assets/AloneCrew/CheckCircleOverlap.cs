@@ -15,7 +15,7 @@ namespace AloneCrew
 
         public override GameObject[] GetObjectsInRange()
         { 
-            var colliders = Physics2D.OverlapCircleAll(transform.position, _radius, _layer.value);
+            var colliders = Physics2D.OverlapCircleAll(transform.position, GetRadius(), _layer.value);
             var result = new List<GameObject>();
             foreach (var collider in colliders)
             {
@@ -30,7 +30,12 @@ namespace AloneCrew
         private void OnDrawGizmosSelected()
         {
             Handles.color = HandlesUtils.TransparentRed;
-            Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
+            Handles.DrawSolidDisc(transform.position, Vector3.forward, GetRadius());
+        }
+
+        protected virtual float GetRadius()
+        {
+            return _radius;
         }
         
     }

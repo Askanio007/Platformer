@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AloneCrew.Model.Data.Properties;
+using AloneCrew.Model.Definitions;
 using UnityEngine;
 
 namespace AloneCrew.Model.Data
@@ -12,6 +13,21 @@ namespace AloneCrew.Model.Data
         [SerializeField] private List<string> _unlocked;
         
         public StringProperty Used => _used;
+
+        public float GetUsedValue()
+        {
+            return DefsFacade.I.Perks.Get(_used.Value).Value;
+        }
+        
+        public bool IsReady()
+        {
+            return DefsFacade.I.Perks.Get(_used.Value).Cooldown.IsReady();
+        }
+        
+        public void ResetCooldown()
+        {
+            DefsFacade.I.Perks.Get(_used.Value).Cooldown.Reset();
+        }
 
         public void AddPerk(string id)
         {

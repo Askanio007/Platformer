@@ -19,9 +19,24 @@ MonoBehaviour:
     _price:
       _itemId: Coin
       _count: 5
+    _cooldown:
+      _cooldown: 0
+    _value: 0
   - _id: double-jump
     _icon: {fileID: -7448187233583761400, guid: 386292865f2a5ac4cb379b72ef05eb11, type: 3}
     _info: Double jump
     _price:
       _itemId: Coin
       _count: 10
+    _cooldown:
+      _cooldown: 0
+    _value: 0
+  - _id: attack-range
+    _icon: {fileID: -924993076103904214, guid: 86ca19c4eba2c2241b9857bf8d8a0958, type: 3}
+    _info: Attack range
+    _price:
+      _itemId: Coin
+      _count: 5
+    _cooldown:
+      _cooldown: 0
+    _value: 2
