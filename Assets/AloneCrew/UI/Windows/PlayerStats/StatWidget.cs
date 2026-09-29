@@ -24,7 +24,7 @@ namespace AloneCrew.UI.Windows.PlayerStats
 
         protected void Start()
         {
-            _session = FindObjectOfType<GameSession>();
+            _session = FindFirstObjectByType<GameSession>();
             UpdateView();
 
         }
