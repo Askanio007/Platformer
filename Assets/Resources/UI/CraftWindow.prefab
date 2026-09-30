@@ -376,7 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.UI.Windows.Perks.CraftWindow
   _craftButton: {fileID: 6983610300751433016}
-  _info: {fileID: 0}
   _selectedIcon: {fileID: 5851429612863927257}
   _listCraftableContainer: {fileID: 1419820458577424403}
   _listCraftablePriceContainer: {fileID: 9200966135908282151}
@@ -769,8 +768,9 @@ GameObject:
   - component: {fileID: 1588908776371007828}
   - component: {fileID: 6350118281836579873}
   - component: {fileID: 2839733928924272094}
+  - component: {fileID: 6496324425309710980}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -838,6 +838,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &6496324425309710980
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710649785534894737}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5395525626978340042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4963642245755104493, guid: df73182a6261dd443a5a6d9abedb5cd5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 27.383453
+      value: 39.17703
       objectReference: {fileID: 0}
     - target: {fileID: 4963642245755104493, guid: df73182a6261dd443a5a6d9abedb5cd5, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1847,7 +1859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4963642245755104493, guid: df73182a6261dd443a5a6d9abedb5cd5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70.5
+      value: 69.6
       objectReference: {fileID: 0}
     - target: {fileID: 4963642245755104493, guid: df73182a6261dd443a5a6d9abedb5cd5, type: 3}
       propertyPath: m_AnchoredPosition.y

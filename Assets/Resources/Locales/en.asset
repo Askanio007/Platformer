@@ -32,3 +32,15 @@ MonoBehaviour:
     _value: "sfx\r"
   - _key: selected_language
     _value: Selected language is {0}
+  - _key: button_buy
+    _value: Buy
+  - _key: button_use
+    _value: Use
+  - _key: label_price
+    _value: Price
+  - _key: shield_info
+    _value: Wonderful shield
+  - _key: double_jump_info
+    _value: More jump for this gentleman
+  - _key: attack_range_info
+    _value: Increase attack range

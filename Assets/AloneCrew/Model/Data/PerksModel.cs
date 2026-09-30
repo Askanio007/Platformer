@@ -90,5 +90,10 @@ namespace AloneCrew.Model.Data
         {
             return _data.Perks.GetUsedValue();
         }
+        
+        public IDisposable SubscribeOnCooldown(Action<float> call)
+        {
+            return _data.Perks.SubscribeOnCooldown(call);
+        }
     }
 }

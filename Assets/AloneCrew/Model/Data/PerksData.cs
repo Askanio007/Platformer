@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AloneCrew.Model.Data.Properties;
 using AloneCrew.Model.Definitions;
+using AloneCrew.Utils;
 using UnityEngine;
 
 namespace AloneCrew.Model.Data
@@ -21,12 +22,23 @@ namespace AloneCrew.Model.Data
         
         public bool IsReady()
         {
-            return DefsFacade.I.Perks.Get(_used.Value).Cooldown.IsReady();
+            return GetCooldown().IsReady();
+        }
+
+        public IDisposable SubscribeOnCooldown(Action<float> call)
+        {
+            var c = GetCooldown();
+            return c != null ? c.Subscribe(call) : null;
         }
         
         public void ResetCooldown()
         {
-            DefsFacade.I.Perks.Get(_used.Value).Cooldown.Reset();
+            GetCooldown().Reset();
+        }
+
+        private Cooldown GetCooldown()
+        {
+            return DefsFacade.I.Perks.Get(_used.Value).Cooldown;
         }
 
         public void AddPerk(string id)
