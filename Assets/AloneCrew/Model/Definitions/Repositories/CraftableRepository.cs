@@ -1,6 +1,5 @@
 ﻿using System;
 using AloneCrew.UI.Windows.Perks;
-using PixelCrew.Model.Definitions;
 using UnityEngine;
 
 namespace AloneCrew.Model.Definitions.Repositories

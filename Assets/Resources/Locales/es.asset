@@ -44,3 +44,5 @@ MonoBehaviour:
     _value: "\xA1M\xE1s saltos para este caballero!"
   - _key: attack_range_info
     _value: Aumenta el alcance de ataque
+  - _key: loading
+    _value: Loadinga...

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using AloneCrew.Model.Data;
-using PixelCrew.Utils;
+using AloneCrew.Utils;
 using TMPro;
 using UnityEngine;
 
