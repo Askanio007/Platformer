@@ -1,6 +1,7 @@
 ﻿using System;
 using AloneCrew.Model.Data;
 using AloneCrew.Model.Definitions.Repositories;
+using AloneCrew.UI.Windows.Perks;
 using UnityEngine;
 
 namespace AloneCrew.Model.Definitions

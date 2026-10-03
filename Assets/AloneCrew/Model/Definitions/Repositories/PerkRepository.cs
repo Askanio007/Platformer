@@ -1,4 +1,6 @@
 ﻿using System;
+using AloneCrew.UI.Windows.Perks;
+using AloneCrew.Utils;
 using PixelCrew.Model.Definitions;
 using UnityEngine;
 
@@ -17,6 +19,8 @@ namespace AloneCrew.Model.Definitions.Repositories
         [SerializeField] private Sprite _icon;
         [SerializeField] private string _info;
         [SerializeField] private ItemWithCount _price;
+        [SerializeField] private Cooldown _cooldown;
+        [SerializeField] private float _value;
 
 
         public ItemWithCount Price => _price;
@@ -26,16 +30,11 @@ namespace AloneCrew.Model.Definitions.Repositories
         public Sprite Icon => _icon;
 
         public string Id => _id;
-    }
-
-    [Serializable]
-    public struct ItemWithCount
-    {
-        [InventoryId] [SerializeField] private string _itemId;
-        [SerializeField] private int _count;
-
-        public string ItemId => _itemId;
-
-        public int Count => _count;
+        
+        public float Value => _value;
+        
+        public Cooldown Cooldown => _cooldown;
+        
+        
     }
 }

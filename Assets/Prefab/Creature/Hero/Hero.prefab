@@ -5368,7 +5368,7 @@ MonoBehaviour:
   _attack: 2
   _invertScale: 0
   _groundCheck: {fileID: 7165556618079113718}
-  _attackRange: {fileID: 122014118064581025}
+  _attackRange: {fileID: 8723660723180494110}
   _particles: {fileID: 52207976433376050}
   _longFly: -15
   _vision: {fileID: 9051125465453885845}
@@ -5987,7 +5987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1096516016534052136}
-  - component: {fileID: 122014118064581025}
+  - component: {fileID: 8723660723180494110}
   m_Layer: 3
   m_Name: AttackPosition
   m_TagString: Untagged
@@ -6010,7 +6010,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9051125465453885845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &122014118064581025
+--- !u!114 &8723660723180494110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6019,9 +6019,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9080095167068853474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ceef9aff4cd4e6287a5a71adbf58cba, type: 3}
+  m_Script: {fileID: 11500000, guid: 59fe1104512f440489c45c4475ed05f9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.CheckCircleOverlap
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.DynamicCheckCircleOverlap
   _radius: 0.3
   _tag: Enemy
   _layer:
