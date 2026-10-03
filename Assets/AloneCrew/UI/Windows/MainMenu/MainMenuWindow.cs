@@ -1,7 +1,8 @@
 ﻿using System;
-using PixelCrew.Utils;
+using AloneCrew.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using AloneCrew.UI.LevelsLoader;
 
 namespace AloneCrew.UI.MainMenu
 {
@@ -21,7 +22,8 @@ namespace AloneCrew.UI.MainMenu
 
         public void OnStartGame()
         {
-            _closeAction = () => { SceneManager.LoadScene("Level1"); };
+            var loader = FindFirstObjectByType<LevelLoader>();
+            _closeAction = () => { loader.LoadLevel("Level1"); };
             Hide();
         }
 

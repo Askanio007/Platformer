@@ -1,4 +1,4 @@
-﻿namespace PixelCrew.Model.Definitions
+﻿namespace AloneCrew.Model.Definitions
 {
     public interface IHaveId
     {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AloneCrew.UI.LevelsLoader;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace AloneCrew.Components
@@ -9,7 +10,8 @@ namespace AloneCrew.Components
         
         public void LoadLevel()
         {
-            SceneManager.LoadScene(level);
+            var loader = FindFirstObjectByType<LevelLoader>();
+            loader.LoadLevel(level);
         }
         
     }

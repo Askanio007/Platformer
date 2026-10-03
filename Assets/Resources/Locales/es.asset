@@ -32,3 +32,5 @@ MonoBehaviour:
     _value: "sfx\r"
   - _key: selected_language
     _value: Selected language is {0}
+  - _key: loading
+    _value: Loadinga...

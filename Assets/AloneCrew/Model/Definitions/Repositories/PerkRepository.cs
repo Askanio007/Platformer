@@ -1,5 +1,4 @@
 ﻿using System;
-using PixelCrew.Model.Definitions;
 using UnityEngine;
 
 namespace AloneCrew.Model.Definitions.Repositories
