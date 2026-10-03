@@ -1,5 +1,6 @@
 using System.Collections;
 using AloneCrew.Components;
+using AloneCrew.Effects.CameraRelated;
 using AloneCrew.Model;
 using AloneCrew.Model.Definitions;
 using AloneCrew.Utils;
@@ -25,6 +26,7 @@ namespace AloneCrew
         private GameSession _gameSession;
         private PlaySoundComponent _sounds;
         private HealthComponent _healthComponent;
+        private CameraShakeEffect _cameraShakeEffect;
 
         void Start()
         {
@@ -36,6 +38,7 @@ namespace AloneCrew
         private void InitSession()
         {
             _gameSession = FindFirstObjectByType<GameSession>();
+            _cameraShakeEffect = FindFirstObjectByType<CameraShakeEffect>();
             AddInInventory("Sword", 5);
             _healthComponent.SetHealth(_gameSession.Hp);
             UpdateAnimator();
@@ -157,6 +160,8 @@ namespace AloneCrew
         public override void TakeDamage()
         {
             base.TakeDamage();
+            if (_cameraShakeEffect != null)
+                _cameraShakeEffect.Shake();
             SpawnCoins();
             _sounds.Play(soundHurtKey);
         }
