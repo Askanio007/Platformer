@@ -30,6 +30,7 @@ namespace AloneCrew.Model
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public QuickInventoryModel QuickInventoryModel { get;  private set; }
         public PerksModel PerksModel {get; private set; }
+		public CraftableModel CraftableModel {get; private set; }
         public StatsModel StatsModel {get; private set; }
         public string QuickInvSelectedItemId => QuickInventoryModel.SelectedItem.Id;
         private List<string> _checkpoints = new();
@@ -102,6 +103,9 @@ namespace AloneCrew.Model
             
             StatsModel = new StatsModel(_data);
             _trash.Retain(StatsModel);
+
+			CraftableModel = new CraftableModel(_data);
+            _trash.Retain(CraftableModel);
 
             _data.Hp.Value = (int) StatsModel.GetValue(StatId.Hp);
         }

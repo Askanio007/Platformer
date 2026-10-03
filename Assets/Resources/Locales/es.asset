@@ -32,5 +32,17 @@ MonoBehaviour:
     _value: "sfx\r"
   - _key: selected_language
     _value: Selected language is {0}
+  - _key: button_buy
+    _value: Buy
+  - _key: button_use
+    _value: Usa
+  - _key: label_price
+    _value: Praice
+  - _key: shield_info
+    _value: "Magn\xEDfico escudo"
+  - _key: double_jump_info
+    _value: "\xA1M\xE1s saltos para este caballero!"
+  - _key: attack_range_info
+    _value: Aumenta el alcance de ataque
   - _key: loading
     _value: Loadinga...

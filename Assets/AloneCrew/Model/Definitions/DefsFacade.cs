@@ -11,12 +11,13 @@ namespace AloneCrew.Model.Definitions
         [SerializeField] private PotionItemsDef _potionItems;
         [SerializeField] private PlayerDef _player;
         [SerializeField] private PerkRepository _perks;
+		[SerializeField] private CraftableRepository _craftables;
         
         private static DefsFacade _instance;
         public static DefsFacade I => _instance == null ? LoadDefs() : _instance;
 
         public PerkRepository Perks => _perks;
-
+		public CraftableRepository Craftables => _craftables;
         public InventoryItemDef Items => _items;
         public ThrowableItemsDef ThrowableItems => _throwableItems;
         public PotionItemsDef PotionItems => _potionItems;

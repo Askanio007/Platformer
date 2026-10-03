@@ -4,7 +4,7 @@
     {
        Stackable,
        Usable,
-       Throwable
-        
+       Throwable,
+       Craftable
     }
 }

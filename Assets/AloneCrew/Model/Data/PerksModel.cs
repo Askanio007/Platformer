@@ -15,8 +15,18 @@ namespace AloneCrew.Model.Data
         
         public event Action OnChanged;
 
-        public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
-        public bool IsShieldSupported => _data.Perks.Used.Value == "shield";
+        public bool IsDoubleJumpSupported => UsePerk("double-jump");
+        public bool IsShieldSupported => UsePerk("shield");
+        public bool IsAttackRangeSupported => UsePerk("attack-range");
+
+        private bool UsePerk(string perkId)
+        {
+            var perk = _data.Perks;
+            if (_data.Perks.Used.Value != perkId) return false;
+            if (!perk.IsReady()) return false;
+            perk.ResetCooldown();
+            return true;
+        }
         
         public PerksModel(PlayerData playerData)
         {
@@ -74,6 +84,16 @@ namespace AloneCrew.Model.Data
         public bool IsUsed(string perkId)
         {
             return _data.Perks.Used.Value == perkId;
+        }
+
+        public float GetUsedValue()
+        {
+            return _data.Perks.GetUsedValue();
+        }
+        
+        public IDisposable SubscribeOnCooldown(Action<float> call)
+        {
+            return _data.Perks.SubscribeOnCooldown(call);
         }
     }
 }

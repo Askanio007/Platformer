@@ -28,7 +28,7 @@ namespace AloneCrew.UI.Windows.PlayerStats
             
             _statsGroup = new DataGroup<StatDef, StatWidget>(_prefab, _statsContainer);
             
-            _session = FindObjectOfType<GameSession>();
+            _session = FindFirstObjectByType<GameSession>();
             var stats = DefsFacade.I.Player.Stats;
             _session.StatsModel.InterfaceSelectedStat.Value = stats[0].ID;
             _trash.Retain(_session.StatsModel.Subscribe(OnStatChanged));
