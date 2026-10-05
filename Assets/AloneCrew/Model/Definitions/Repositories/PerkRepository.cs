@@ -1,7 +1,6 @@
 ﻿using System;
 using AloneCrew.UI.Windows.Perks;
-using AloneCrew.Utils;
-using PixelCrew.Model.Definitions;
+using AloneCrew.Utils; 
 using UnityEngine;
 
 namespace AloneCrew.Model.Definitions.Repositories

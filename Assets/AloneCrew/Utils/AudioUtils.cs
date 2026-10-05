@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PixelCrew.Utils
+namespace AloneCrew.Utils
 {
     public class AudioUtils
     {

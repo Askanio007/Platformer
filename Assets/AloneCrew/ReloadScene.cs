@@ -1,4 +1,5 @@
 using AloneCrew.Model;
+using AloneCrew.UI.LevelsLoader;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,8 +11,9 @@ namespace AloneCrew
         {
             var scene = SceneManager.GetActiveScene();
             var gameSession = FindAnyObjectByType<GameSession>();
+            var loader = FindFirstObjectByType<LevelLoader>();
             gameSession.Reset();
-            SceneManager.LoadScene(scene.name);
+            loader.LoadLevel(scene.name);
         }
     }
 }

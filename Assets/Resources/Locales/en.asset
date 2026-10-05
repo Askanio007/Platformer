@@ -44,3 +44,5 @@ MonoBehaviour:
     _value: More jump for this gentleman
   - _key: attack_range_info
     _value: Increase attack range
+  - _key: loading
+    _value: Loading...

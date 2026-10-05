@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace PixelCrew.Utils
+namespace AloneCrew.Utils
 {
     public static class WindowUtils
     {
