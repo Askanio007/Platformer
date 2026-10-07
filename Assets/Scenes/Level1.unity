@@ -1632,10 +1632,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.2121212
     y: 0
-    width: 1
-    height: 1
+    width: 2.2805834
+    height: 2.2814372
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1665,7 +1665,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.879999, y: 2.413528, z: -4.7685847}
+  m_LocalPosition: {x: -14.939133, y: 2.413528, z: -4.7685847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9172,7 +9172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47334ec0d9c64d8895cb1575605bccff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Effects.CameraRelated.CameraShakeEffect
-  _animationTime: 0.3
+  _animationTime: 1
   _intensity: 3
 --- !u!114 &1310746305
 MonoBehaviour:

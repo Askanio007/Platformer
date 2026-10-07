@@ -20,7 +20,10 @@ namespace AloneCrew.Effects.CameraRelated
         public void Shake()
         {
             if (_shakeCoroutine != null)
-                StopAnimation();
+            {
+                ResetCamera();
+                StopShakeCoroutine();
+            }
             _shakeCoroutine = StartCoroutine(StartAnimation());
         }
 
@@ -28,14 +31,19 @@ namespace AloneCrew.Effects.CameraRelated
         {
             _cameraShake.FrequencyGain = _intensity;
             yield return new WaitForSeconds(_animationTime);
-            StopAnimation();
+            ResetCamera();
+            StopShakeCoroutine();
         }
         
-        private void StopAnimation()
+        private void StopShakeCoroutine()
         {
-            _cameraShake.FrequencyGain = 0;
             StopCoroutine(_shakeCoroutine);
             _shakeCoroutine = null;
+        }
+
+        private void ResetCamera()
+        {
+            _cameraShake.FrequencyGain = 0;
         }
     }
 }
