@@ -19,7 +19,7 @@ TagManager:
   - Interaction
   - Enemy
   - Trash
-  - 
+  - Background
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Creature
     uniqueID: 2954098793
+    locked: 0
+  - name: Overlay
+    uniqueID: 2619777865
     locked: 0
   m_RenderingLayers:
   - Default
