@@ -1063,7 +1063,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.839344, y: 7.057778}
+  m_Offset: {x: 3.838395, y: 7.116146}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1073,7 +1073,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 36.78151, y: 16.758812}
+  m_Size: {x: 26.113836, y: 14.4240265}
   m_EdgeRadius: 0
 --- !u!4 &439973783
 Transform:
@@ -1431,10 +1431,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.5993266
+    x: 0
     y: 0
-    width: 2.4242423
-    height: 2.4251497
+    width: 1
+    height: 0.9994566
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1464,7 +1464,7 @@ Transform:
   m_GameObject: {fileID: 669301085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.65, y: 2.413529, z: -4.7685847}
+  m_LocalPosition: {x: -14.1323595, y: 2.4135275, z: -4.7685847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2132,7 +2132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
-  BoundingShape2D: {fileID: 0}
+  BoundingShape2D: {fileID: 439973782}
   Damping: 0.5
   SlowingDistance: 5
   OversizeWindow:

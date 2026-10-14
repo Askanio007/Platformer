@@ -130,6 +130,7 @@ Transform:
   - {fileID: 4566794096870665422}
   - {fileID: 4808585146704753420}
   - {fileID: 7744094164859366714}
+  - {fileID: 2623013497044857024}
   - {fileID: 5332571822163088913}
   - {fileID: 3175631025719018458}
   - {fileID: 4443966755586068049}
@@ -476,6 +477,91 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.09
+--- !u!1 &4775651085616643419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2623013497044857024}
+  - component: {fileID: 2482577909529762756}
+  - component: {fileID: 735205956489050010}
+  m_Layer: 0
+  m_Name: ForwardWallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2623013497044857024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775651085616643419}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.855, y: 0.136, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5868318099752197050}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2482577909529762756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775651085616643419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25e25a4e94e44e5be17223b5433480c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.LayerCheck
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4096
+  IsTouchingLayer: 0
+--- !u!58 &735205956489050010
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775651085616643419}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.29}
+  m_Radius: 0.09
 --- !u!1 &5050551680893441804
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.HealthComponent
   _health: 3
-  _maxHealth: 10
+  _maxHealth: 3
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -817,7 +903,6 @@ MonoBehaviour:
   _canAttack: {fileID: 1831406988984665892}
   _alarmDelay: 0.5
   _attackCooldown: 1.5
-  _animator: {fileID: 6716151326180167947}
   _particles: {fileID: 1252099103885730136}
 --- !u!114 &6331129025030538640
 MonoBehaviour:
@@ -840,10 +925,10 @@ MonoBehaviour:
   _attackRange: {fileID: 122014118064581025}
   _particles: {fileID: 1252099103885730136}
   _longFly: 10
-  _animator: {fileID: 6716151326180167947}
   _vision: {fileID: 5868318099752197050}
   _isGrounded: 0
   _forwardGroundCheck: {fileID: 8189085758030931530}
+  _forwardWallCheck: {fileID: 2482577909529762756}
   _patrollingDirection: {x: 0, y: 0}
 --- !u!95 &6716151326180167947
 Animator:

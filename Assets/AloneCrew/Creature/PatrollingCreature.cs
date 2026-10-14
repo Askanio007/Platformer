@@ -8,6 +8,7 @@ namespace AloneCrew
     public class PatrollingCreature : Creature
     {
         [SerializeField] private LayerCheck _forwardGroundCheck;
+        [SerializeField] private LayerCheck _forwardWallCheck;
         [SerializeField] private Vector2 _patrollingDirection;
 
         public void DoPatroling()
@@ -16,7 +17,7 @@ namespace AloneCrew
             {
                 _patrollingDirection = _direction;
             }
-            if (!_forwardGroundCheck.IsTouchingLayer)
+            if (!_forwardGroundCheck.IsTouchingLayer || _forwardWallCheck.IsTouchingLayer)
             {
                 _patrollingDirection = _patrollingDirection == Vector2.left ? Vector2.right : Vector2.left;
             }
@@ -25,7 +26,7 @@ namespace AloneCrew
 
         public bool GroundForwardExist()
         {
-            return _forwardGroundCheck.IsTouchingLayer;
+            return _forwardGroundCheck.IsTouchingLayer && !_forwardWallCheck.IsTouchingLayer;
         }
         
     }
