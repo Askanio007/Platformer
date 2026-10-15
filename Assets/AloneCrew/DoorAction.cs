@@ -12,6 +12,7 @@ namespace AloneCrew
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            ChangeState();
         }
 
         public void ChangeState()

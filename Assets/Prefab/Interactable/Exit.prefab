@@ -112,9 +112,9 @@ MonoBehaviour:
   _onSuccess:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3357111155746893242}
-        m_TargetAssemblyTypeName: AloneCrew.Components.InteractComponent, Assembly-CSharp
-        m_MethodName: Interact
+      - m_Target: {fileID: 5520801678748916130}
+        m_TargetAssemblyTypeName: AloneCrew.Components.LoadLevelComponent, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -142,9 +142,9 @@ MonoBehaviour:
   _onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5520801678748916130}
-        m_TargetAssemblyTypeName: AloneCrew.Components.LoadLevelComponent, Assembly-CSharp
-        m_MethodName: LoadLevel
+      - m_Target: {fileID: 8939847522445727423}
+        m_TargetAssemblyTypeName: AloneCrew.Interaction.RequireItemComponent, Assembly-CSharp
+        m_MethodName: Check
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

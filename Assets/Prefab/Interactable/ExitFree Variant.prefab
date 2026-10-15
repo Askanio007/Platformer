@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3906299422770282370
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3357111155746893242, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8838355228504663584}
+    - target: {fileID: 3357111155746893242, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357111155746893242, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AloneCrew.Components.LoadLevelComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520801678748916130, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: level
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053635962796666745, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: m_Name
+      value: ExitFree Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+--- !u!114 &8838355228504663584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5520801678748916130, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+  m_PrefabInstance: {fileID: 3906299422770282370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bc2ed75acc4f25a78e71e17a3a65e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.LoadLevelComponent
