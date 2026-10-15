@@ -1642,8 +1642,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.9995632
-    height: 1
+    width: 1
+    height: 0.99979836
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1673,7 +1673,7 @@ Transform:
   m_GameObject: {fileID: 1413560040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.662529, y: 2.4135275, z: -4.7685847}
+  m_LocalPosition: {x: -8.662528, y: 2.4135275, z: -4.7685847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13999,6 +13999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.SpawnComponent
   _target: {fileID: 1987456426}
   _prefab: {fileID: 5050551680893441804, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
+  _direction: {fileID: 0}
 --- !u!1 &2059979458
 GameObject:
   m_ObjectHideFlags: 0
