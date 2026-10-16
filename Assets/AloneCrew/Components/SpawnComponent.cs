@@ -1,4 +1,5 @@
 ﻿using AloneCrew.Utils;
+using AloneCrew.Utils.ObjectPool;
 using UnityEngine;
 
 namespace AloneCrew.Components
@@ -9,11 +10,14 @@ namespace AloneCrew.Components
         [SerializeField] private Transform _target;
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _direction;
+        [SerializeField] private bool _usePool;
 
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
+            var instantiate = _usePool ? 
+                Pool.Instance.Get(_prefab, _target.position) : 
+                SpawnUtils.Spawn(_prefab, _target.position);
             instantiate.transform.localScale = _target.lossyScale;
             if (_direction != null)
             {
