@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.HealthComponent
   _health: 5
-  _maxHealth: 10
+  _maxHealth: 5
   _onDamage:
     m_PersistentCalls:
       m_Calls:

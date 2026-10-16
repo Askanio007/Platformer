@@ -23,6 +23,7 @@ namespace AloneCrew
         protected Animator _animator;
         public bool _isGrounded;
         private bool _needFallDust;
+        private bool _autoPilot;
         
         private static readonly int isGroundedKey = Animator.StringToHash("is-grounded");
         private static readonly int isRunningKey = Animator.StringToHash("is-running");
@@ -46,6 +47,22 @@ namespace AloneCrew
         
         public void SetDirection(Vector2 direction)
         {
+            _autoPilot = false;
+            _direction = direction;
+        }
+        
+        public void Stop()
+        {
+            if (_autoPilot)
+            {
+                _direction = Vector2.zero;
+                _autoPilot = false;
+            }
+        }
+        
+        public void SetDirectionAuto(Vector2 direction)
+        {
+            _autoPilot = true;
             _direction = direction;
         }
         
