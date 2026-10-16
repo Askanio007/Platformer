@@ -1,4 +1,5 @@
 using System;
+using AloneCrew.Utils;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,9 +13,15 @@ namespace AloneCrew.Components
         [SerializeField] private UnityEvent _onHealth;
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private IntChange _onChange;
+        private Lock _damageLock = new Lock();
         
         public int Health => _health;
         public int MaxHealth => _maxHealth;
+        public Lock DamageLock => _damageLock;
+        
+        public IntChange OnChange => _onChange;
+        public UnityEvent OnDamage => _onDamage;
+        public UnityEvent OnDie => _onDie;
 
         public void SetHealth(int health)
         {
@@ -23,6 +30,7 @@ namespace AloneCrew.Components
 
         public void ApplyDamage(int damage)
         {
+            if (damage > 0 && _damageLock.IsLocked) return;
             _health = Math.Min(_maxHealth, _health - damage);
             _onChange?.Invoke(_health);
             if (damage < 0)

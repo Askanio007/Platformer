@@ -10,7 +10,15 @@ namespace AloneCrew.Components.LevelManagement
         public void Start()
         {
             var vCamera = GetComponent<CinemachineCamera>();
-            vCamera.Follow = FindFirstObjectByType<Hero>().transform;
+            var hero = FindFirstObjectByType<Hero>();
+            if (hero != null)
+            {
+                vCamera.Follow = hero.transform;
+            }
+            else
+            {
+                Debug.LogWarning("Not found Hero for camera");
+            }
         }
         
     }
