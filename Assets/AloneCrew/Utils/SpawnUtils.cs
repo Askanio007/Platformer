@@ -12,7 +12,7 @@ namespace AloneCrew.Utils
             if (container == null)
                 container = new GameObject(containerName);
             
-            return Object.Instantiate(prefab,  position, Quaternion.identity, container.transform);
+            return Object.Instantiate(prefab, position, Quaternion.identity, container.transform);
         }
     }
 }
