@@ -1,3 +1,4 @@
+using AloneCrew.Utils.ObjectPool;
 using UnityEngine;
 
 namespace AloneCrew.Components
@@ -9,7 +10,15 @@ namespace AloneCrew.Components
         private void OnTriggerExit2D(Collider2D collision)
         {
             if ((_layer.value & (1 << collision.gameObject.layer)) == 0) return;
-            Destroy(collision.gameObject);
+            var poolItem = collision.gameObject.GetComponent<PoolItem>();
+            if (poolItem != null)
+            {
+                poolItem.Release();
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
         }
 
     }

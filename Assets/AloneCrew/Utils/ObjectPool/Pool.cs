@@ -55,7 +55,10 @@ namespace AloneCrew.Utils.ObjectPool
         public void Release(int id, PoolItem poolItem)
         {
             var queue = RequireQueue(id);
-            queue.Enqueue(poolItem);
+            if (!queue.Contains(poolItem))
+            {
+                queue.Enqueue(poolItem);
+            }
             
             poolItem.gameObject.SetActive(false);
         }
