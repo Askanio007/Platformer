@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.SpawnComponent
   _target: {fileID: 6628007086408243983}
   _prefab: {fileID: 6491345323062158758, guid: 3295588e84297e34eb76325ff9d6658b, type: 3}
+  _direction: {fileID: 0}
+  _usePool: 1
 --- !u!1 &3249110704652264248
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +94,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.SpawnComponent
   _target: {fileID: 2900509505572811996}
   _prefab: {fileID: 7091262193587820454, guid: cf3ce5c9cddae74488447a1037bb5914, type: 3}
+  _direction: {fileID: 0}
+  _usePool: 1
 --- !u!1 &3457958991941909067
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +735,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.SpawnComponent
   _target: {fileID: 7186638302951895499}
   _prefab: {fileID: 7091262193587820454, guid: 1fe7e4799d8d4114e9ebfa9aad32eb72, type: 3}
+  _direction: {fileID: 0}
+  _usePool: 1
 --- !u!1 &6973453404223594259
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +783,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.SpawnComponent
   _target: {fileID: 4443966755586068049}
   _prefab: {fileID: 4406517031481477146, guid: 2013ba8e870be422aa3c429df42f11e9, type: 3}
+  _direction: {fileID: 0}
+  _usePool: 0
 --- !u!1 &7791807776361477194
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8749812583558100101}
   - component: {fileID: 6627216056206387567}
   - component: {fileID: 7650303304585562766}
-  - component: {fileID: 7816266252751271640}
+  - component: {fileID: 3554766172079158798}
   m_Layer: 0
   m_Name: Foots
   m_TagString: Untagged
@@ -111,6 +111,7 @@ MonoBehaviour:
   - Name: dust
     Loop: 0
     AllowNext: 0
+    spriteAfterAnimation: {fileID: 0}
     Sprites:
     - {fileID: 21300000, guid: 24f96a208fbc9cb408b47f52ea9c8127, type: 3}
     - {fileID: 21300000, guid: 47c7d890076e86945b1248e5a2c233e7, type: 3}
@@ -121,10 +122,9 @@ MonoBehaviour:
     OnComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7816266252751271640}
-          m_TargetAssemblyTypeName: AloneCrew.Components.DestroyObjectComponent,
-            Assembly-CSharp
-          m_MethodName: DoDestroy
+        - m_Target: {fileID: 3554766172079158798}
+          m_TargetAssemblyTypeName: AloneCrew.Utils.ObjectPool.PoolItem, Assembly-CSharp
+          m_MethodName: Release
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &7816266252751271640
+--- !u!114 &3554766172079158798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6491345323062158758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97382a676217f4d4497379143676c994, type: 3}
+  m_Script: {fileID: 11500000, guid: 702cd0e6632947bc9463609c7e4a37d3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.DestroyObjectComponent
-  _forDestroy: {fileID: 6491345323062158758}
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Utils.ObjectPool.PoolItem
+  _onRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7650303304585562766}
+        m_TargetAssemblyTypeName: AloneCrew.SpriteAnimationComponent, Assembly-CSharp
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: dust
+          m_BoolArgument: 0
+        m_CallState: 2
