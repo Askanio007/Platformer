@@ -3869,6 +3869,8 @@ MonoBehaviour:
         Value: 3000
       - Id: SpeedPotion
         Value: 3
+      - Id: Key
+        Value: 1
     Hp:
       _value: 2
     Perks:
@@ -4330,6 +4332,7 @@ Transform:
   - {fileID: 1950298209}
   - {fileID: 312687520}
   - {fileID: 744456768}
+  - {fileID: 1338663780}
   - {fileID: 547678048}
   - {fileID: 363294193}
   - {fileID: 577161793}
@@ -4492,7 +4495,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.99972296
+    width: 0.99988145
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -11234,6 +11237,80 @@ MonoBehaviour:
   AmplitudeGain: 1
   FrequencyGain: 0
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!1001 &1338663779
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 470539016}
+    m_Modifications:
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.08551
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832493845384218465, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832493845384218465, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.59671515
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832493845384218465, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.44495374
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602334960778506867, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+      propertyPath: m_Name
+      value: CandleLight (13)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+--- !u!4 &1338663780 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5760373601328319353, guid: 87b4b2117d78be549bb095d3d83f20f2, type: 3}
+  m_PrefabInstance: {fileID: 1338663779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1359807217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
@@ -11255,17 +11332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bc2ed75acc4f25a78e71e17a3a65e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.LoadLevelComponent
---- !u!114 &1407016548 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-  m_PrefabInstance: {fileID: 5942283529868434001}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5942283529868434002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1bf1879563340599bd424826a407879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Interaction.RequireItemComponent
 --- !u!1 &1412930568
 GameObject:
   m_ObjectHideFlags: 0
@@ -37571,18 +37637,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 636653866}
     m_Modifications:
-    - target: {fileID: 3357111155746893242, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1407016548}
-    - target: {fileID: 3357111155746893242, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Check
-      objectReference: {fileID: 0}
-    - target: {fileID: 3357111155746893242, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AloneCrew.Interaction.RequireItemComponent, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 5437520680590216146, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
@@ -37624,43 +37678,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5942283529868434003}
-    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1407016546}
-    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Show
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5942283529868434004}
     - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AloneCrew.Components.Dialogs.ShowDialogComponent, Assembly-CSharp
+      value: Remove
       objectReference: {fileID: 0}
     - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AloneCrew.Components.LoadLevelComponent, Assembly-CSharp
+      value: AloneCrew.Components.InventoryRemoveComponent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
-      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9053635962796666745, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
@@ -37673,14 +37707,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9053635962796666745, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5942283529868434003}
+      addedObject: {fileID: 5942283529868434004}
   m_SourcePrefab: {fileID: 100100000, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
 --- !u!1 &5942283529868434002 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9053635962796666745, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
   m_PrefabInstance: {fileID: 5942283529868434001}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5942283529868434003
+--- !u!114 &5942283529868434004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37689,14 +37723,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 5942283529868434002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59de7102834344f7aa20e455500d992f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ba98da8e586458fbf1179e29c9fa5ce, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.Dialogs.ShowDialogComponent
-  _mode: 0
-  _bound:
-    _sentences:
-    - You need a KEY!
-  _external: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.InventoryRemoveComponent
+  _id: Key
+  _count: 1
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1407016546}
+        m_TargetAssemblyTypeName: AloneCrew.Components.LoadLevelComponent, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &6855508851984592654
 PrefabInstance:
   m_ObjectHideFlags: 0

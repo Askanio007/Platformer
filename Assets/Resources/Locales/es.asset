@@ -46,3 +46,7 @@ MonoBehaviour:
     _value: Aumenta el alcance de ataque
   - _key: loading
     _value: Loadinga...
+  - _key: demo_finish
+    _value: Gracias por jugar a mi juego
+  - _key: dash_info
+    _value: Un fuerte impulso hacia adelante

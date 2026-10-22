@@ -11,7 +11,7 @@ namespace AloneCrew
         public void Launch(Vector2 direction)
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _playSoundComponent.Play("shoot");
+            _playSoundComponent?.Play("shoot");
             _rigidbody.AddForce(direction * _speed, ForceMode2D.Impulse);
         }
     }

@@ -46,3 +46,7 @@ MonoBehaviour:
     _value: Increase attack range
   - _key: loading
     _value: Loading...
+  - _key: demo_finish
+    _value: Thank you for playing my game
+  - _key: dash_info
+    _value: A strong surge forward
