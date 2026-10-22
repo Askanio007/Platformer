@@ -12,7 +12,7 @@ namespace AloneCrew.UI.Hud.Dialogs
         [SerializeField] private GameObject _container;
         [SerializeField] private Animator _animator;
 
-        [Space] [SerializeField] private float _textSpeed = 0.09f;
+        [Space] [SerializeField] private float _textSpeed = 0.15f;
         
         [Header("Sounds")] [SerializeField] private AudioClip _typingSound;
         [SerializeField] private AudioClip _open;

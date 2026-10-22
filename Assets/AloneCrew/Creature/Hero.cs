@@ -18,10 +18,14 @@ namespace AloneCrew
         [SerializeField] protected SpawnComponent _throwable;
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
+        [SerializeField] private float _dashSpeed;
+        [SerializeField] private float _dashDuration;
         
         private Color _handlesColor;
         private bool _allowDoubleJump;
         private bool _isThrowing;
+        private bool _isDashing;
+        private Vector2 _dashDir;
         
         private GameSession _gameSession;
         private PlaySoundComponent _sounds;
@@ -33,6 +37,28 @@ namespace AloneCrew
             _sounds = GetComponent<PlaySoundComponent>();
             _healthComponent = GetComponent<HealthComponent>();
             InitSession();
+        }
+
+        public void Dash()
+        {
+            if (_isDashing || !_isGrounded || !_gameSession.PerksModel.IsDashSupported) return;
+            _isDashing = true;
+            _animator.SetBool("IsDashing", _isDashing);
+            StartCoroutine(DoDash());
+        }
+
+        private IEnumerator DoDash()
+        {
+            float originalGravity = _rigedbody.gravityScale;
+            _rigedbody.gravityScale = 0f;
+            
+            _dashDir = _visionDirection;
+
+            yield return new WaitForSeconds(_dashDuration);
+
+            _rigedbody.gravityScale = originalGravity;
+            _isDashing = false;
+            _animator.SetBool("IsDashing", _isDashing);
         }
         
         private void InitSession()
@@ -145,6 +171,10 @@ namespace AloneCrew
 
         protected override void FixedUpdate()
         {
+            if (_isDashing)
+            {
+                _rigedbody.linearVelocity = new Vector2(_dashDir.x * _dashSpeed, 0f);
+            }
             base.FixedUpdate();
             if (_isGrounded)
             {
@@ -280,6 +310,11 @@ namespace AloneCrew
         public override int GetAttack()
         {
             return (int) _gameSession.TryGetCritAttack(base.GetAttack());
+        }
+
+        public override bool CanMove()
+        {
+            return !_isDashing;
         }
     }
     

@@ -297,6 +297,8 @@ MonoBehaviour:
   _target: {fileID: 1415092114}
   _prefab: {fileID: 5050551680893441804, guid: 9907e01bd7271064c9fea761e9405a68, type: 3}
   _direction: {fileID: 32082870}
+  _usePool: 0
+  _usePrefabScale: 0
 --- !u!4 &32082870
 Transform:
   m_ObjectHideFlags: 0
@@ -4490,8 +4492,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 0.9998013
+    width: 0.99972296
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -11247,7 +11249,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5520801678748916130, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
   m_PrefabInstance: {fileID: 5942283529868434001}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5942283529868434002}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0bc2ed75acc4f25a78e71e17a3a65e9, type: 3}
@@ -11258,7 +11260,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
   m_PrefabInstance: {fileID: 5942283529868434001}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 5942283529868434002}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1bf1879563340599bd424826a407879, type: 3}
@@ -37622,16 +37624,44 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5942283529868434003}
+    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1407016546}
+    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
     - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AloneCrew.Components.Dialogs.ShowDialogComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       propertyPath: _onSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: AloneCrew.Components.LoadLevelComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939847522445727423, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9053635962796666745, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
       propertyPath: m_Name
@@ -37640,8 +37670,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9053635962796666745, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5942283529868434003}
   m_SourcePrefab: {fileID: 100100000, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+--- !u!1 &5942283529868434002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9053635962796666745, guid: 66095bce60ddea14eac90bcae9575fd6, type: 3}
+  m_PrefabInstance: {fileID: 5942283529868434001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5942283529868434003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942283529868434002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59de7102834344f7aa20e455500d992f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.Components.Dialogs.ShowDialogComponent
+  _mode: 0
+  _bound:
+    _sentences:
+    - You need a KEY!
+  _external: {fileID: 0}
 --- !u!1001 &6855508851984592654
 PrefabInstance:
   m_ObjectHideFlags: 0
