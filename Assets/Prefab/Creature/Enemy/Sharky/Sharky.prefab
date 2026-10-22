@@ -533,7 +533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.LayerCheck
   _layer:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 4160
   IsTouchingLayer: 0
 --- !u!58 &735205956489050010
 CircleCollider2D:
