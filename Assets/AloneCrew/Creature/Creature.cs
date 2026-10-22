@@ -24,6 +24,7 @@ namespace AloneCrew
         public bool _isGrounded;
         private bool _needFallDust;
         private bool _autoPilot;
+        protected Vector2 _visionDirection;
         
         private static readonly int isGroundedKey = Animator.StringToHash("is-grounded");
         private static readonly int isRunningKey = Animator.StringToHash("is-running");
@@ -48,7 +49,13 @@ namespace AloneCrew
         public void SetDirection(Vector2 direction)
         {
             _autoPilot = false;
-            _direction = direction;
+            UpdateDirection(direction);
+        }
+        
+        public void SetDirectionAuto(Vector2 direction)
+        {
+            _autoPilot = true;
+            UpdateDirection(direction);
         }
         
         public void Stop()
@@ -59,11 +66,14 @@ namespace AloneCrew
                 _autoPilot = false;
             }
         }
-        
-        public void SetDirectionAuto(Vector2 direction)
+
+        private void UpdateDirection(Vector2 direction)
         {
-            _autoPilot = true;
             _direction = direction;
+            if (direction != Vector2.zero)
+            {
+                _visionDirection = direction;
+            }
         }
         
         public void SetJumpSpeed(float speed)
@@ -78,6 +88,7 @@ namespace AloneCrew
         
         protected virtual void FixedUpdate()
         {
+            if(!CanMove()) return;
             if (_isGrounded)
             {
                 if (_needFallDust)
@@ -202,6 +213,10 @@ namespace AloneCrew
         {
             return _attack;
         }
-        
+
+        public virtual bool CanMove()
+        {
+            return true;
+        }
     }
 }

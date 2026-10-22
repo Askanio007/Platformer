@@ -48,6 +48,7 @@ MonoBehaviour:
   _prefab: {fileID: 6491345323062158758, guid: 3295588e84297e34eb76325ff9d6658b, type: 3}
   _direction: {fileID: 0}
   _usePool: 1
+  _usePrefabScale: 0
 --- !u!1 &3134948494189107197
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +97,7 @@ MonoBehaviour:
   _prefab: {fileID: 2764175815312048368, guid: 91708961c9737964fbc4de7623a6a631, type: 3}
   _direction: {fileID: 0}
   _usePool: 0
+  _usePrefabScale: 0
 --- !u!1 &3249110704652264248
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +146,7 @@ MonoBehaviour:
   _prefab: {fileID: 7091262193587820454, guid: cf3ce5c9cddae74488447a1037bb5914, type: 3}
   _direction: {fileID: 0}
   _usePool: 1
+  _usePrefabScale: 0
 --- !u!1 &3832394614487174581
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,7 +5088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AloneCrew.LayerCheck
   _layer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   IsTouchingLayer: 0
 --- !u!58 &1774059433064578987
 CircleCollider2D:
@@ -5390,6 +5393,8 @@ MonoBehaviour:
   _throwable: {fileID: 8637874337837365078}
   _armed: {fileID: 9100000, guid: 0e050fd676c35874d8a41fb6c2fe3c23, type: 2}
   _disarmed: {fileID: 9100000, guid: 6c2e7d03b8882d742a95c7b391d5ea9d, type: 2}
+  _dashSpeed: 15
+  _dashDuration: 0.15
 --- !u!114 &6756376545143834761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5555,6 +5560,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7feeb163-8c69-4c16-996b-ca9339fc42e3
     m_ActionName: 'Hero/UseItem[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6756376545143834761}
+        m_TargetAssemblyTypeName: AloneCrew.HeroInputReader, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2f3ea740-0c0c-4ff6-9458-156a9749a796
+    m_ActionName: 'Hero/Dash[/Keyboard/tab]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5634,7 +5655,7 @@ Animator:
   m_GameObject: {fileID: 5050551680893441804}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0e050fd676c35874d8a41fb6c2fe3c23, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6c2e7d03b8882d742a95c7b391d5ea9d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5909,6 +5930,7 @@ MonoBehaviour:
   _prefab: {fileID: 7091262193587820454, guid: 1fe7e4799d8d4114e9ebfa9aad32eb72, type: 3}
   _direction: {fileID: 0}
   _usePool: 1
+  _usePrefabScale: 0
 --- !u!1 &7791807776361477194
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ namespace AloneCrew.Components
         [SerializeField] private GameObject _prefab;
         [SerializeField] private Transform _direction;
         [SerializeField] private bool _usePool;
+        [SerializeField] private bool _usePrefabScale;
 
         [ContextMenu("Spawn")]
         public void Spawn()
@@ -18,7 +19,10 @@ namespace AloneCrew.Components
             var instantiate = _usePool ? 
                 Pool.Instance.Get(_prefab, _target.position) : 
                 SpawnUtils.Spawn(_prefab, _target.position);
-            instantiate.transform.localScale = _target.lossyScale;
+            if (!_usePrefabScale)
+            {
+                instantiate.transform.localScale = _target.lossyScale;
+            }
             if (_direction != null)
             {
                 instantiate.GetComponent<Creature>()?.SetDirectionAuto(Vector2.right);

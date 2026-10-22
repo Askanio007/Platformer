@@ -18,6 +18,7 @@ namespace AloneCrew.Model.Data
         public bool IsDoubleJumpSupported => UsePerk("double-jump");
         public bool IsShieldSupported => UsePerk("shield");
         public bool IsAttackRangeSupported => UsePerk("attack-range");
+        public bool IsDashSupported => UsePerk("dash");
 
         private bool UsePerk(string perkId)
         {

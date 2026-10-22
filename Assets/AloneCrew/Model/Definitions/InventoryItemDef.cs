@@ -25,7 +25,7 @@ namespace AloneCrew.Model.Definitions
 
     }
 
-[Serializable]
+    [Serializable]
     public struct ItemDef
     {
         [SerializeField] private string _id;

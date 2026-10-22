@@ -10,8 +10,7 @@ namespace AloneCrew.Components
 
         public void Start()
         {
-            _source = GameObject.FindGameObjectWithTag("SfxAudioSource").GetComponent<AudioSource>();
-            
+            InitSource();
         }
 
         public void Play(string id)
@@ -20,10 +19,19 @@ namespace AloneCrew.Components
             {
                 if (data.Id == id)
                 {
+                    if (_source == null)
+                    {
+                        InitSource();
+                    }
                     _source.PlayOneShot(data.Clip);
                     break;
                 }
             }
+        }
+
+        private void InitSource()
+        {
+            _source = GameObject.FindGameObjectWithTag("SfxAudioSource").GetComponent<AudioSource>();
         }
         
         
