@@ -67,6 +67,14 @@ namespace AloneCrew
             }
         }
         
+        public void Dash(InputAction.CallbackContext context)
+        {
+            if(context.started)
+            {
+                _hero.Dash();
+            }
+        }
+        
         public void OnThrow(InputAction.CallbackContext context)
         {
             if (context.interaction is HoldInteraction && context.performed)

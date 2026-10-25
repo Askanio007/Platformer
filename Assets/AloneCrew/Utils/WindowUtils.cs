@@ -9,7 +9,7 @@ namespace AloneCrew.Utils
         {
             var window = Resources.Load<GameObject>(resourcePath);
             var canvas = Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None)
-                .FirstOrDefault(c => c.gameObject.layer == LayerMask.NameToLayer("UI") );
+                .FirstOrDefault(c => c.gameObject.layer == LayerMask.NameToLayer("Hud") );
             Object.Instantiate(window, canvas.transform);
         }
     }

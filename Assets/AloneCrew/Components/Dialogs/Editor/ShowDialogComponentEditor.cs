@@ -11,7 +11,7 @@ namespace AloneCrew.Components.Dialogs.Editor
 
         private void OnEnable()
         {
-            _modeProperty = serializedObject.FindProperty("mode");
+            _modeProperty = serializedObject.FindProperty("_mode");
         }
         public override void OnInspectorGUI()
         {

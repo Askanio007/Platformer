@@ -40,3 +40,12 @@ MonoBehaviour:
     _cooldown:
       _cooldown: 0
     _value: 2
+  - _id: dash
+    _icon: {fileID: 21300000, guid: 53e6620225df5bd46907e580b82d83d6, type: 3}
+    _info: dash_info
+    _price:
+      _itemId: Coin
+      _count: 5
+    _cooldown:
+      _cooldown: 1.5
+    _value: 0
